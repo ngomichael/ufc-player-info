@@ -19,19 +19,28 @@ const fighterNameStyles = {
 
 
 class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            statistic: 'Punches landed per minute',
+            fighter: 'El Cucuy',
+            country: 'United States'
+        };
+    }
+
     render() {
         return (
             <div>
                 <div style={fighterInfoStyles}>
                     <div style={countryStyles}>
-                        {this.props.country}
+                        {this.state.country}
                     </div>
                     <div style={fighterNameStyles}>
-                        In the red corner, {this.props.fighterName}!
+                        In the red corner, {this.state.fighter}!
                     </div>
                 </div>
                 <div>
-                    <Statistics/>
+                    <Statistics statistic={this.state.statistic} />
                 </div>
             </div>
         )
