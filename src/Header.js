@@ -22,7 +22,6 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            statistic: 'Punches landed per minute',
             fighter: 'El Cucuy',
             country: 'United States'
         };
@@ -40,7 +39,7 @@ class Header extends Component {
                     </div>
                 </div>
                 <div>
-                    <Statistics statistic={this.state.statistic} />
+                    <Statistics statisticName="Punches landed per minute" />
                 </div>
             </div>
         )

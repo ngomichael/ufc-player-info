@@ -1,16 +1,20 @@
 import React, {Component} from 'react';
 
-const statisticsStyles = {
+// const statisticsStyles = {
+//     paddingRight: '10%',
+//     float: 'right',
+//     width: '100%',
+//     height: '300px',
+//     // marginLeft: '50%'
+// };
+
+const container = {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'red',
-    alignItems: 'flex-end',
-    paddingRight: '10%',
-    float: 'right',
-    width: '100%',
-    height: '300px',
-    // marginLeft: '50%'
-
+    marginLeft: '15px',
+    // alignItems: 'flex-end',
+    // marginRight: '5%',
+    // position: 'relative'
 };
 
 const outerSkillsBar = {
@@ -22,18 +26,26 @@ const outerSkillsBar = {
     backgroundColor:'white',
     height: '40px',
     borderRadius: '4px',
+
 };
 
 const statNumber = {
-    paddingRight: '5px',
-    transition: 'all 1s ease',
+    display: 'flex',
+    paddingLeft: '22%',
+    position: 'absolute'
 };
 
+const statisticName = {
+    position: 'relative',
+    margin: '5px 0px',
+
+};
 
 function createInnerSkillsStyle(width) {
     const innerSkillsStyle = {
-        width: width + 'px',
+        width: width + '%',
         backgroundColor:'black',
+        opacity: '0.7',
         height: '40px',
         borderBottomLeftRadius: '4px',
         borderTopLeftRadius: '4px',
@@ -47,25 +59,22 @@ class Statistics extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            number: '0',
+            statisticNumber: '0',
         };
     }
 
     componentDidMount() {
-        setTimeout(function() { this.setState({number: '85'}); }.bind(this), 50);
+        setTimeout(function() { this.setState({statisticNumber: '50'}); }.bind(this), 1);
     }
 
     render() {
         return (
-            <div>
-                <div style={statisticsStyles}>
-                    <h3>{this.props.statistic}</h3>
-                    <div style={outerSkillsBar}>
-                        <div style={createInnerSkillsStyle(this.state.number)} >
-
-                        </div>
-                        <h4 style={statNumber}>{this.state.number}</h4>
+            <div style={container}>
+                <h3 style={statisticName}>{this.props.statisticName}</h3>
+                <div style={outerSkillsBar}>
+                    <div style={createInnerSkillsStyle(this.state.statisticNumber)} >
                     </div>
+                    <div style={statNumber}>{this.state.statisticNumber}</div>
                 </div>
             </div>
         )
