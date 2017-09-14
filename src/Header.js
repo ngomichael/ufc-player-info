@@ -17,6 +17,10 @@ const fighterNameStyles = {
     color: 'black',
 };
 
+const statisticContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+};
 
 class Header extends Component {
     constructor(props) {
@@ -38,8 +42,14 @@ class Header extends Component {
                         In the red corner, {this.state.fighter}!
                     </div>
                 </div>
-                <div>
-                    <Statistics statisticName="Punches landed per minute" />
+                <br />
+                <div style={statisticContainer}>
+                    <Statistics statisticName="Total Strikes Landed" />
+                    <Statistics statisticName="Punches Landed Per Minute" />
+                    <Statistics statisticName="Strike Differential" />
+                    <Statistics statisticName="Knockdowns Landed" />
+                    <Statistics statisticName="Takedowns Landed" />
+                    <Statistics statisticName="Submission Attempts" />
                 </div>
             </div>
         )

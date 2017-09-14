@@ -1,20 +1,10 @@
 import React, {Component} from 'react';
 
-// const statisticsStyles = {
-//     paddingRight: '10%',
-//     float: 'right',
-//     width: '100%',
-//     height: '300px',
-//     // marginLeft: '50%'
-// };
-
 const container = {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: '15px',
-    // alignItems: 'flex-end',
-    // marginRight: '5%',
-    // position: 'relative'
+    marginBottom: '30px'
 };
 
 const outerSkillsBar = {
@@ -76,6 +66,7 @@ class Statistics extends Component {
                     </div>
                     <div style={statNumber}>{this.state.statisticNumber}</div>
                 </div>
+                <br />
             </div>
         )
     };
