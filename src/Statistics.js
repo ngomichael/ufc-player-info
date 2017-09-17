@@ -4,7 +4,7 @@ const container = {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: '15px',
-    marginBottom: '30px'
+    marginBottom: '20px'
 };
 
 const outerSkillsBar = {
@@ -54,7 +54,7 @@ class Statistics extends Component {
     }
 
     componentDidMount() {
-        setTimeout(function() { this.setState({statisticNumber: '50'}); }.bind(this), 1);
+        setTimeout(function() { this.setState({statisticNumber: this.props.statisticNumber}); }.bind(this), 1);
     }
 
     render() {
