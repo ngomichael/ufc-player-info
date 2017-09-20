@@ -1,36 +1,38 @@
 import React, {Component} from 'react';
-import Statistics from './Statistics';
+import Body from './Body';
 
 const fighterInfoStyles = {
     backgroundColor: 'pink',
-    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // textAlign: 'center',
     width: '100%',
     height: '110px',
     fontSize: '176%'
 };
 
 const countryStyles = {
-    color: 'darkblue'
+    color: 'darkblue',
+    fontSize: '20px',
 };
 
 const fighterNameStyles = {
     color: 'black',
+    fontSize: '50px',
 };
 
-const statisticContainer = {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'relative',
-    left: '65%',
+const recordStyles= {
+    fontSize: '20px',
+
 };
-
-
 
 class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fighter: 'El Cucuy',
+            fighter: 'Bobby Knuckles',
             country: 'United States',
             record: '23-2-0'
         };
@@ -46,18 +48,13 @@ class Header extends Component {
                     <div style={fighterNameStyles}>
                         {this.state.fighter}
                     </div>
-                    <div>
+                    <div style={recordStyles}>
                         {this.state.record}
                     </div>
                 </div>
                 <br />
-                <div style={statisticContainer}>
-                    <Statistics statisticNumber="55" statisticName="Total Strikes Landed" />
-                    <Statistics statisticNumber="5" statisticName="Punches Landed Per Minute" />
-                    <Statistics statisticNumber="15" statisticName="Strike Differential" />
-                    <Statistics statisticNumber="25" statisticName="Knockdowns Landed" />
-                    <Statistics statisticNumber="55" statisticName="Takedowns Landed" />
-                    <Statistics statisticNumber="85" statisticName="Submission Attempts" />
+                <div>
+                    <Body />
                 </div>
             </div>
         )

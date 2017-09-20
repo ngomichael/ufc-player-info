@@ -22,12 +22,13 @@ const outerSkillsBar = {
 const statNumber = {
     display: 'flex',
     paddingLeft: '22%',
-    position: 'absolute'
+    position: 'absolute',
 };
 
 const statisticName = {
     position: 'relative',
     margin: '5px 0px',
+    transition: 'all 1s ease'
 
 };
 
@@ -48,13 +49,30 @@ function createInnerSkillsStyle(width) {
 class Statistics extends Component {
     constructor(props) {
         super(props);
+        this.incrementCount = this.incrementCount.bind(this);
+        // this.addToCount = this.addToCount.bind(this);
         this.state = {
             statisticNumber: '0',
+            count: 0
         };
+    }
+
+    // addToCount(i) {
+    //     this.setState({
+    //         count: this.state.count + i
+    //     })
+    // }
+
+    incrementCount() {
+        for (let i = 0; i <= this.props.statisticNumber; i++) {
+            // this.addToCount(i)
+            setTimeout(function() { this.setState({count: this.state.count + 1}); }.bind(this), 1000);
+        }
     }
 
     componentDidMount() {
         setTimeout(function() { this.setState({statisticNumber: this.props.statisticNumber}); }.bind(this), 1);
+        this.incrementCount();
     }
 
     render() {
@@ -64,7 +82,7 @@ class Statistics extends Component {
                 <div style={outerSkillsBar}>
                     <div style={createInnerSkillsStyle(this.state.statisticNumber)} >
                     </div>
-                    <div style={statNumber}>{this.state.statisticNumber}</div>
+                    <div style={statNumber}>{this.state.count}</div>
                 </div>
                 <br />
             </div>
