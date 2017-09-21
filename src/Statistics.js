@@ -13,7 +13,7 @@ const outerSkillsBar = {
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '25%',
-    backgroundColor:'white',
+    backgroundColor:'purple',
     height: '40px',
     borderRadius: '4px',
 

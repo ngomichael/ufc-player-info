@@ -8,6 +8,7 @@ const statisticContainer = {
     left: '65%',
 };
 
+
 class Body extends Component {
     render() {
         return (

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Body from './Body';
 
 const fighterInfoStyles = {
-    backgroundColor: 'pink',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -24,7 +23,7 @@ const countryStyles = {
 const fighterNameStyles = {
     color: 'black',
     fontSize: '50px',
-    fontFamily: 'PT Sans',
+    fontFamily: 'Lato',
     fontWeight: '700',
 };
 
@@ -34,6 +33,12 @@ const recordStyles= {
     fontFamily: 'Open Sans',
     fontWeight: '600',
     bottom: '5px'
+};
+
+const line = {
+    width: '100%',
+    height: '2px',
+    backgroundColor: 'black',
 };
 
 class Header extends Component {
@@ -49,6 +54,7 @@ class Header extends Component {
     render() {
         return (
             <div>
+                <div style={line}></div>
                 <div style={fighterInfoStyles}>
                     <div style={countryStyles}>
                         {this.state.country}
