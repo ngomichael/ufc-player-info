@@ -7,7 +7,6 @@ const fighterInfoStyles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    // textAlign: 'center',
     width: '100%',
     height: '110px',
     fontSize: '176%'
@@ -15,17 +14,26 @@ const fighterInfoStyles = {
 
 const countryStyles = {
     color: 'darkblue',
+    position: 'relative',
     fontSize: '20px',
+    fontFamily: 'Open Sans',
+    fontWeight: '600',
+    top: '5px'
 };
 
 const fighterNameStyles = {
     color: 'black',
     fontSize: '50px',
+    fontFamily: 'PT Sans',
+    fontWeight: '700',
 };
 
 const recordStyles= {
+    position: 'relative',
     fontSize: '20px',
-
+    fontFamily: 'Open Sans',
+    fontWeight: '600',
+    bottom: '5px'
 };
 
 class Header extends Component {

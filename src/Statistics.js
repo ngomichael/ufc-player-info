@@ -23,13 +23,15 @@ const statNumber = {
     display: 'flex',
     paddingLeft: '22%',
     position: 'absolute',
+    fontFamily: 'Open Sans',
+    fontWeight: '600',
 };
 
 const statisticName = {
     position: 'relative',
     margin: '5px 0px',
-    transition: 'all 1s ease'
-
+    fontFamily: 'Open Sans',
+    fontWeight: '600',
 };
 
 function createInnerSkillsStyle(width) {
@@ -40,7 +42,8 @@ function createInnerSkillsStyle(width) {
         height: '40px',
         borderBottomLeftRadius: '4px',
         borderTopLeftRadius: '4px',
-        transition: 'all 1s ease'
+        borderRadius: '3px',
+        transition: 'all 1.5s ease'
     };
 
     return innerSkillsStyle
@@ -49,36 +52,37 @@ function createInnerSkillsStyle(width) {
 class Statistics extends Component {
     constructor(props) {
         super(props);
-        this.incrementCount = this.incrementCount.bind(this);
-        // this.addToCount = this.addToCount.bind(this);
+        this.callAddToCount = this.callAddToCount.bind(this);
+        this.addToCount = this.addToCount.bind(this);
         this.state = {
             statisticNumber: '0',
             count: 0
         };
     }
 
-    // addToCount(i) {
-    //     this.setState({
-    //         count: this.state.count + i
-    //     })
-    // }
+    addToCount(milliseconds) {
+        setTimeout(function() { this.setState({count: this.state.count + 1}); }.bind(this), milliseconds);
+    }
 
-    incrementCount() {
+    callAddToCount() {
+        let totalMilliseconds = 0;
+        let milliseconds = 1500/this.props.statisticNumber;
         for (let i = 0; i <= this.props.statisticNumber; i++) {
-            // this.addToCount(i)
-            setTimeout(function() { this.setState({count: this.state.count + 1}); }.bind(this), 1000);
+
+            totalMilliseconds = totalMilliseconds + (milliseconds);
+            this.addToCount(totalMilliseconds);
         }
     }
 
     componentDidMount() {
         setTimeout(function() { this.setState({statisticNumber: this.props.statisticNumber}); }.bind(this), 1);
-        this.incrementCount();
+        this.callAddToCount();
     }
 
     render() {
         return (
             <div style={container}>
-                <h3 style={statisticName}>{this.props.statisticName}</h3>
+                <div style={statisticName}>{this.props.statisticName}</div>
                 <div style={outerSkillsBar}>
                     <div style={createInnerSkillsStyle(this.state.statisticNumber)} >
                     </div>
