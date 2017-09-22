@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import Body from './Body';
 
+const container = {
+  marginTop: '33%'
+};
+
 const fighterInfoStyles = {
     display: 'flex',
     flexDirection: 'column',
@@ -22,7 +26,7 @@ const countryStyles = {
 
 const fighterNameStyles = {
     color: 'black',
-    fontSize: '50px',
+    fontSize: '61px',
     fontFamily: 'Lato',
     fontWeight: '700',
 };
@@ -53,7 +57,7 @@ class Header extends Component {
 
     render() {
         return (
-            <div>
+            <div style={container}>
                 <div style={line}></div>
                 <div style={fighterInfoStyles}>
                     <div style={countryStyles}>

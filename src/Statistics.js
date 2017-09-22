@@ -4,7 +4,8 @@ const container = {
     display: 'flex',
     flexDirection: 'column',
     marginLeft: '15px',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    height: '100%'
 };
 
 const outerSkillsBar = {
@@ -13,7 +14,7 @@ const outerSkillsBar = {
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '25%',
-    backgroundColor:'purple',
+    backgroundColor:'floralwhite',
     height: '40px',
     borderRadius: '4px',
 
