@@ -17,6 +17,8 @@ const outerSkillsBar = {
     backgroundColor:'floralwhite',
     height: '40px',
     borderRadius: '4px',
+    borderBottomRightRadius: '3px',
+    borderTopRightRadius: '3px',
 
 };
 
@@ -32,7 +34,7 @@ const statisticName = {
     position: 'relative',
     margin: '5px 0px',
     fontFamily: 'Open Sans',
-    fontWeight: '600',
+    fontWeight: '400',
 };
 
 function createInnerSkillsStyle(width) {
@@ -68,7 +70,7 @@ class Statistics extends Component {
     callAddToCount() {
         let totalMilliseconds = 0;
         let milliseconds = 1500/this.props.statisticNumber;
-        for (let i = 0; i <= this.props.statisticNumber; i++) {
+        for (let i = 0; i < this.props.statisticNumber; i++) {
 
             totalMilliseconds = totalMilliseconds + (milliseconds);
             this.addToCount(totalMilliseconds);

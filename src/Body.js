@@ -18,7 +18,7 @@ class Body extends Component {
                 <Statistics statisticNumber="15" statisticName="Strike Differential" />
                 <Statistics statisticNumber="25" statisticName="Knockdowns Landed" />
                 <Statistics statisticNumber="55" statisticName="Takedowns Landed" />
-                <Statistics statisticNumber="95" statisticName="Submission Attempts" />
+                <Statistics statisticNumber="100" statisticName="Submission Attempts" />
             </div>
         )
     }
