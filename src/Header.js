@@ -48,11 +48,11 @@ const line = {
 class Header extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            fighter: 'Bobby Knuckles',
-            country: 'United States',
-            record: '23-2-0'
-        };
+        // this.state = {
+        //     fighter: this.props.name,
+        //     country: this.props.country,
+        //     record: this.props.record
+        // };
     }
 
     render() {
@@ -61,13 +61,13 @@ class Header extends Component {
                 <div style={line}></div>
                 <div style={fighterInfoStyles}>
                     <div style={countryStyles}>
-                        {this.state.country}
+                        {this.props.country}
                     </div>
                     <div style={fighterNameStyles}>
-                        {this.state.fighter}
+                        {this.props.name}
                     </div>
                     <div style={recordStyles}>
-                        {this.state.record}
+                        {this.props.record}
                     </div>
                 </div>
                 <br />

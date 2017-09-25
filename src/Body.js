@@ -13,7 +13,6 @@ class Body extends Component {
     render() {
         return (
             <div style={statisticContainer}>
-                <Statistics statisticNumber="55" statisticName="Total Strikes Landed" />
                 <Statistics statisticNumber="5" statisticName="Punches Landed Per Minute" />
                 <Statistics statisticNumber="15" statisticName="Strike Differential" />
                 <Statistics statisticNumber="25" statisticName="Knockdowns Landed" />
