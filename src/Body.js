@@ -13,11 +13,10 @@ class Body extends Component {
     render() {
         return (
             <div style={statisticContainer}>
-                <Statistics statisticNumber="5" statisticName="Punches Landed Per Minute" />
-                <Statistics statisticNumber="15" statisticName="Strike Differential" />
-                <Statistics statisticNumber="25" statisticName="Knockdowns Landed" />
-                <Statistics statisticNumber="55" statisticName="Takedowns Landed" />
-                <Statistics statisticNumber="100" statisticName="Submission Attempts" />
+                <Statistics statisticNumber={this.props.strikesPerMinute} statisticName="Strikes Landed Per Minute" />
+                <Statistics statisticNumber={this.props.strikeDifferential} statisticName="Strike Differential" />
+                <Statistics statisticNumber={this.props.knockdownsLanded} statisticName="Knockdowns Landed" />
+                <Statistics statisticNumber={this.props.submissions} statisticName="Submission Attempts" />
             </div>
         )
     }

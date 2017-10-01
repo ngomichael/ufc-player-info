@@ -21,11 +21,6 @@ class Fighter extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.state = {
             letterSpacing: '0',
-            punchesPerMinute: '0',
-            strikeDifferential: '0',
-            knockdownsLanded: '0',
-            takedownsLanded: '0',
-            submissionAttempts: '0'
         };
     }
 
@@ -42,14 +37,8 @@ class Fighter extends Component {
     }
 
     handleChange() {
-        // this.setState({
-        //     punchesPerMinute: '0',
-        //     strikeDifferential: '0',
-        //     knockdownsLanded: '0',
-        //     takedownsLanded: '0',
-        //     submissionAttempts: '0'
-        // })
-        this.props.changeFighter(this.props.name, this.props.country, this.props.record)
+        this.props.changeFighter(this.props.name, this.props.country, this.props.record, this.props.strikesPerMinute,
+        this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissions)
     }
 
     render() {

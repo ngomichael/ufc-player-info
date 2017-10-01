@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import Body from './Body';
 
 const container = {
-  marginTop: '33%'
+    position: 'relative',
+    marginTop: '23%',
+    height: '800px'
 };
 
 const fighterInfoStyles = {
@@ -48,11 +50,6 @@ const line = {
 class Header extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     fighter: this.props.name,
-        //     country: this.props.country,
-        //     record: this.props.record
-        // };
     }
 
     render() {
@@ -72,7 +69,8 @@ class Header extends Component {
                 </div>
                 <br />
                 <div>
-                    <Body />
+                    <Body  strikesPerMinute={this.props.strikesPerMinute} strikeDifferential={this.props.strikeDifferential}
+                           knockdownsLanded={this.props.knockdownsLanded} submissions={this.props.submissions}/>
                 </div>
             </div>
         )

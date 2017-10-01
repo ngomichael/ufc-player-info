@@ -37,6 +37,10 @@ const statisticName = {
     fontWeight: '400',
 };
 
+const spaceBetweenSkillBar = {
+    height: '40px'
+};
+
 function createInnerSkillsStyle(width) {
     const innerSkillsStyle = {
         width: width + '%',
@@ -58,7 +62,7 @@ class Statistics extends Component {
         this.callAddToCount = this.callAddToCount.bind(this);
         this.addToCount = this.addToCount.bind(this);
         this.state = {
-            statisticNumber: '0',
+            statNum: 0,
             count: 0
         };
     }
@@ -77,9 +81,12 @@ class Statistics extends Component {
         }
     }
 
-    componentDidMount() {
-        setTimeout(function() { this.setState({statisticNumber: this.props.statisticNumber}); }.bind(this), 1);
-        this.callAddToCount();
+    //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
+    componentWillReceiveProps(nextProps) {
+        if(this.props.statisticNumber !== nextProps.statisticNumber) {
+            setTimeout(function() { this.setState({statNum: nextProps.statisticNumber}); }.bind(this), 50);
+            setTimeout(this.callAddToCount, 50);
+        }
     }
 
     render() {
@@ -87,11 +94,11 @@ class Statistics extends Component {
             <div style={container}>
                 <div style={statisticName}>{this.props.statisticName}</div>
                 <div style={outerSkillsBar}>
-                    <div style={createInnerSkillsStyle(this.state.statisticNumber)} >
+                    <div style={createInnerSkillsStyle(this.state.statNum)} >
                     </div>
                     <div style={statNumber}>{this.state.count}</div>
                 </div>
-                <br />
+                <div style={spaceBetweenSkillBar}> </div>
             </div>
         )
     };
