@@ -13,9 +13,9 @@ const outerSkillsBar = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '25%',
+    width: '30%',
     backgroundColor:'floralwhite',
-    height: '40px',
+    height: '60px',
     borderRadius: '4px',
     borderBottomRightRadius: '3px',
     borderTopRightRadius: '3px',
@@ -24,7 +24,7 @@ const outerSkillsBar = {
 
 const statNumber = {
     display: 'flex',
-    paddingLeft: '22%',
+    paddingLeft: '27%',
     position: 'absolute',
     fontFamily: 'Open Sans',
     fontWeight: '600',
@@ -34,7 +34,7 @@ const statisticName = {
     position: 'relative',
     margin: '5px 0px',
     fontFamily: 'Open Sans',
-    fontWeight: '400',
+    fontWeight: '700',
 };
 
 const spaceBetweenSkillBar = {
@@ -46,7 +46,7 @@ function createInnerSkillsStyle(width) {
         width: width + '%',
         backgroundColor:'black',
         opacity: '0.7',
-        height: '40px',
+        height: '60px',
         borderBottomLeftRadius: '4px',
         borderTopLeftRadius: '4px',
         borderRadius: '3px',
@@ -73,7 +73,7 @@ class Statistics extends Component {
 
     callAddToCount() {
         let totalMilliseconds = 0;
-        let milliseconds = 1500/this.props.statisticNumber;
+        let milliseconds = 1250/this.props.statisticNumber;
         for (let i = 0; i < this.props.statisticNumber; i++) {
 
             totalMilliseconds = totalMilliseconds + (milliseconds);
@@ -84,8 +84,9 @@ class Statistics extends Component {
     //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
     componentWillReceiveProps(nextProps) {
         if(this.props.statisticNumber !== nextProps.statisticNumber) {
-            setTimeout(function() { this.setState({statNum: nextProps.statisticNumber}); }.bind(this), 50);
-            setTimeout(this.callAddToCount, 50);
+            setTimeout(function() { this.setState({statNum: nextProps.statisticNumber}); }.bind(this), 1000);
+            setTimeout(function() { this.setState({count: 0}); }.bind(this), 1000);
+            setTimeout(this.callAddToCount, 1000);
         }
     }
 

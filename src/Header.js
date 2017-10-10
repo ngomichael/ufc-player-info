@@ -9,18 +9,22 @@ const container = {
 
 const fighterInfoStyles = {
     display: 'flex',
+    position: 'relative',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
     height: '110px',
-    fontSize: '176%'
+    fontSize: '176%',
+    top: '45%',
+    right: '20%',
+    marginTop: '-50px'
 };
 
 const countryStyles = {
     color: 'darkblue',
     position: 'relative',
-    fontSize: '20px',
+    fontSize: '40px',
     fontFamily: 'Open Sans',
     fontWeight: '600',
     top: '5px'
@@ -28,14 +32,14 @@ const countryStyles = {
 
 const fighterNameStyles = {
     color: 'black',
-    fontSize: '61px',
+    fontSize: '80px',
     fontFamily: 'Lato',
     fontWeight: '700',
 };
 
 const recordStyles= {
     position: 'relative',
-    fontSize: '20px',
+    fontSize: '40px',
     fontFamily: 'Open Sans',
     fontWeight: '600',
     bottom: '5px'
@@ -61,7 +65,10 @@ class Header extends Component {
                         {this.props.country}
                     </div>
                     <div style={fighterNameStyles}>
-                        {this.props.name}
+                        {this.props.firstName}
+                    </div>
+                    <div style={fighterNameStyles}>
+                        {this.props.lastName}
                     </div>
                     <div style={recordStyles}>
                         {this.props.record}
@@ -70,7 +77,7 @@ class Header extends Component {
                 <br />
                 <div>
                     <Body  strikesPerMinute={this.props.strikesPerMinute} strikeDifferential={this.props.strikeDifferential}
-                           knockdownsLanded={this.props.knockdownsLanded} submissions={this.props.submissions}/>
+                           knockdownsLanded={this.props.knockdownsLanded} submissionAttempts={this.props.submissionAttempts} submissions={this.props.submissions}/>
                 </div>
             </div>
         )

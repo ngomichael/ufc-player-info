@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
+import { configureAnchors } from 'react-scrollable-anchor'
+
+configureAnchors({offset: -60, scrollDuration: 1000});
 
 function hoverFighter(spacing) {
     const rankingsList = {
-        fontSize: '20px',
+        fontSize: '25px',
         cursor: 'pointer',
         fontFamily: 'Open Sans',
         fontWeight: '400',
@@ -12,6 +15,11 @@ function hoverFighter(spacing) {
     };
     return rankingsList;
 }
+
+const anchorStyle = {
+    textDecoration: 'none',
+    color: 'black'
+};
 
 class Fighter extends Component {
     constructor(props) {
@@ -36,15 +44,22 @@ class Fighter extends Component {
         })
     }
 
+
     handleChange() {
-        this.props.changeFighter(this.props.name, this.props.country, this.props.record, this.props.strikesPerMinute,
-        this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissions)
+        this.props.changeFighter(this.props.firstName, this.props.lastName, this.props.country, this.props.record, this.props.strikesPerMinute,
+        this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissionAttempts ,this.props.submissions);
     }
+
+
 
     render() {
         return (
             <div>
-                <li onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.handleChange} style={hoverFighter(this.state.letterSpacing)}>{this.props.name} </li>
+                <a href="#statistics" style={anchorStyle}>
+                    <li onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.handleChange} style={hoverFighter(this.state.letterSpacing)}>
+                        {this.props.firstName} {this.props.lastName}
+                    </li>
+                </a>
             </div>
 
         )

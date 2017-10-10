@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import _ from 'lodash'
 import Header from './Header';
 import Fighter from './Fighter';
 
@@ -31,7 +32,7 @@ function animateRankingsTitle(opacity) {
         letterSpacing: '5px',
         fontFamily: 'Roboto Slab',
         fontWeight: '400',
-        fontSize: '30px',
+        fontSize: '40px',
         transition: 'all 1.5s ease',
         opacity: opacity,
     };
@@ -60,7 +61,8 @@ class FrontPage extends Component {
             width: '0',
             opacity: '0',
 
-            name: 'Name',
+            firstName: 'First',
+            lastName: 'Last',
             country: 'Country',
             record: '0-0',
 
@@ -71,15 +73,18 @@ class FrontPage extends Component {
         };
     }
 
-    changeFighter(newName, newCountry, newRecord, strikesPerMinute, strikeDifferential, knockdownsLanded, submissions) {
+    changeFighter(newFirstName, newLastName, newCountry, newRecord, strikesPerMinute, strikeDifferential, knockdownsLanded, submissionAttempts, submissions) {
         this.setState({
-            name: newName,
+            firstName: newFirstName,
+            lastName: newLastName,
             country: newCountry,
             record: newRecord,
             strikesPerMinute: strikesPerMinute,
             strikeDifferential: strikeDifferential,
             knockdownsLanded: knockdownsLanded,
+            submissionAttempts: submissionAttempts,
             submissions: submissions
+
         })
     }
 
@@ -100,34 +105,44 @@ class FrontPage extends Component {
                         <div style={animateRankingsTitle(this.state.opacity)}>Pound for Pound</div>
                         <div style={animateUnderline(this.state.width)}></div>
                         <ol>
-                            <Fighter name="Demetrious Johnson" country="United States" record="16-2-1"
-                                     strikesPerMinute="4" strikeDifferential="2" knockdownsLanded="3"
-                                     submissions="4" changeFighter={this.changeFighter}/>
-                            <Fighter name="Conor McGregor" country="Ireland" record="9-1"
-                                     strikesPerMinute="6" strikeDifferential="3" knockdownsLanded="6"
-                                     submissions="0" changeFighter={this.changeFighter}/>
-                            <Fighter name="Stipe Miocic" country="United States" record="11-2"
-                                     strikesPerMinute="5" strikeDifferential="2" knockdownsLanded="5"
-                                     submissions="0" changeFighter={this.changeFighter}/>
-                            <Fighter name="Max Holloway" country="United States" record="14-3"
-                                     strikesPerMinute="6" strikeDifferential="2" knockdownsLanded="8"
-                                     submissions="2" changeFighter={this.changeFighter}/>
-                            <Fighter name="Daniel Cormier" country="United States" record="12-1"
-                                     strikesPerMinute="4" strikeDifferential="1" knockdownsLanded="1"
-                                     submissions="3" changeFighter={this.changeFighter}/>
-                            <Fighter name="Cody Garbrandt" country="United States" record="6-0"
-                                     strikesPerMinute="6" strikeDifferential="3" knockdownsLanded="7"
-                                     submissions="0" changeFighter={this.changeFighter}/>
-                            <Fighter name="Joanna Jedrzejczyk" country="Poland"  record="8-0"
-                                     strikesPerMinute="6" strikeDifferential="3" knockdownsLanded="1"
-                                     submissions="0" changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Demetrious" lastName="Johnson" country="United States" record="16-2-1"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Conor" lastName="McGregor" country="Ireland" record="9-1"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Stipe" lastName="Miocic" country="United States" record="11-2"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)}  submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Max" lastName="Holloway" country="United States" record="14-3"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded="8"
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Daniel" lastName="Cormier" country="United States" record="12-1"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Cody" lastName="Garbrandt" country="United States" record="6-0"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Joanna" lastName="Jedrzejczyk" country="Poland"  record="8-0"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Tyron" lastName="Woodley" country="United States"  record="8-0"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Jose" lastName="Aldo" country="Brazil"  record="8-0"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
+                            <Fighter firstName="Dominick" lastName="Cruz" country="United States"  record="8-0"
+                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                                     submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} changeFighter={this.changeFighter}/>
                         </ol>
                     </div>
                 </div>
 
                 <div>
-                    <Header name={this.state.name} country={this.state.country} record={this.state.record} strikesPerMinute={this.state.strikesPerMinute}
-                    strikeDifferential={this.state.strikeDifferential} knockdownsLanded={this.state.knockdownsLanded} submissions={this.state.submissions}/>
+                    <Header firstName={this.state.firstName} lastName={this.state.lastName} country={this.state.country} record={this.state.record} strikesPerMinute={this.state.strikesPerMinute}
+                    strikeDifferential={this.state.strikeDifferential} knockdownsLanded={this.state.knockdownsLanded}
+                            submissionAttempts={this.state.submissionAttempts} submissions={this.state.submissions}/>
                 </div>
             </div>
         )
