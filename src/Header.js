@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import Body from './Body';
+// import Statistics from './Statistics';
 
 const container = {
     position: 'relative',
-    marginTop: '23%',
-    height: '800px'
+    marginTop: '28%',
 };
 
 const fighterInfoStyles = {
@@ -16,9 +15,8 @@ const fighterInfoStyles = {
     width: '100%',
     height: '110px',
     fontSize: '176%',
-    top: '45%',
+    top: '400px',
     right: '20%',
-    marginTop: '-50px'
 };
 
 const countryStyles = {
@@ -75,10 +73,6 @@ class Header extends Component {
                     </div>
                 </div>
                 <br />
-                <div>
-                    <Body  strikesPerMinute={this.props.strikesPerMinute} strikeDifferential={this.props.strikeDifferential}
-                           knockdownsLanded={this.props.knockdownsLanded} submissionAttempts={this.props.submissionAttempts} submissions={this.props.submissions}/>
-                </div>
             </div>
         )
     }

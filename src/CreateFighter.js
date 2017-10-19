@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import { configureAnchors } from 'react-scrollable-anchor'
+import { goToTop } from 'react-scrollable-anchor'
 
 configureAnchors({offset: -60, scrollDuration: 1000});
 
 function hoverFighter(spacing) {
     const rankingsList = {
-        fontSize: '25px',
+        fontSize: '30px',
         cursor: 'pointer',
         fontFamily: 'Open Sans',
         fontWeight: '400',
@@ -28,19 +29,19 @@ class Fighter extends Component {
         this.onMouseOut = this.onMouseOut.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state = {
-            letterSpacing: '0',
+            letterSpacing: 0,
         };
     }
 
     onMouseOver() {
         this.setState({
-            letterSpacing: '3'
+            letterSpacing: 3
         });
     }
 
     onMouseOut() {
         this.setState({
-            letterSpacing: '0'
+            letterSpacing: 0
         })
     }
 
