@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 const container = {
     position: 'relative',
-    marginTop: '28%',
+    marginTop: '26%',
 };
 
 const fighterInfoStyles = {
@@ -40,7 +40,8 @@ const recordStyles= {
     fontSize: '40px',
     fontFamily: 'Open Sans',
     fontWeight: '600',
-    bottom: '5px'
+    bottom: '5px',
+    color: '#b30000',
 };
 
 const line = {
@@ -57,7 +58,7 @@ class Header extends Component {
     render() {
         return (
             <div style={container}>
-                <div style={line}></div>
+                {/*<div style={line}></div>*/}
                 <div style={fighterInfoStyles}>
                     <div style={countryStyles}>
                         {this.props.country}

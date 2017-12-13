@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { configureAnchors } from 'react-scrollable-anchor'
-import { goToTop } from 'react-scrollable-anchor'
 
 configureAnchors({offset: -60, scrollDuration: 1000});
 
@@ -48,7 +47,7 @@ class Fighter extends Component {
 
     handleChange() {
         this.props.changeFighter(this.props.firstName, this.props.lastName, this.props.country, this.props.record, this.props.strikesPerMinute,
-        this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissionAttempts ,this.props.submissions);
+        this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissionAttempts ,this.props.submissions, this.props.totalStrikesLanded);
     }
 
 

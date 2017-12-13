@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 const container = {
     display: 'flex',
     flexDirection: 'column',
-    marginLeft: '15px',
     marginBottom: '20px',
     height: '100%'
 };
@@ -14,7 +13,7 @@ const outerSkillsBar = {
     justifyContent: 'space-between',
     alignItems: 'center',
     width: '30%',
-    backgroundColor:'#d9d9d9',
+    backgroundColor:'#e6e6e6',
     height: '60px',
     borderRadius: '4px',
     borderBottomRightRadius: '3px',
@@ -45,8 +44,8 @@ const spaceBetweenSkillBar = {
 function createInnerSkillsStyle(width) {
     const innerSkillsStyle = {
         width: width + '%',
-        backgroundColor:'#002699',
-        opacity: '0.7',
+        backgroundColor:'#990000',
+        opacity: '0.9',
         height: '60px',
         borderBottomLeftRadius: '4px',
         borderTopLeftRadius: '4px',
