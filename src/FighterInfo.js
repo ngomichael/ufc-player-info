@@ -4,30 +4,23 @@ import Statistics from './Statistics'
 import FontAwesome from 'react-fontawesome';
 import faStyles from 'font-awesome/css/font-awesome.css';
 
-function changeCursor(cursor) {
-    const fighterChangeStyle = {
-        position: 'relative',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        top: '20px',
-        ontFamily: 'Lato',
-        fontWeight: '700',
-        color: '#006600',
-        cursor: cursor,
-        textDecoration: 'none',
-    };
+const fighterChangeStyle = {
+    position: 'relative',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ontFamily: 'Lato',
+    fontWeight: '700',
+    color: '#006600',
+    cursor: 'pointer',
+    textDecoration: 'none',
+    top: '190px'
+};
 
-    return fighterChangeStyle;
-}
+
 
 const arrowStyle = {
     color: 'black',
-};
-
-const headerStyle = {
-    position: 'relative',
-    top: '90px'
 };
 
 class FighterInfo extends Component {
@@ -56,12 +49,13 @@ class FighterInfo extends Component {
     render() {
         return (
             <div>
-                <div style={headerStyle}>
+                <div>
+                    {/*Has to do something with this that's why a div is covering some of the fighters*/}
                     <Header firstName={this.props.firstName} lastName={this.props.lastName} country={this.props.country} record={this.props.record}/>
                 </div>
 
-                <a href="#header" style={changeCursor(this.state.cursor)} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
-                    Change
+                <a href="#header" style={fighterChangeStyle} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
+                    {/*Change*/}
                     <div style={arrowStyle}>
                         <FontAwesome
                             className='fa fa-long-arrow-up fa-4x'
@@ -69,7 +63,7 @@ class FighterInfo extends Component {
                             cssModule={faStyles}
                         />
                     </div>
-                    Fighter
+                    {/*Fighter*/}
                 </a>
 
 

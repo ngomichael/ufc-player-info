@@ -1,22 +1,16 @@
 import React, {Component} from 'react';
 // import Statistics from './Statistics';
 
-const container = {
-    position: 'relative',
-    marginTop: '26%',
-};
-
 const fighterInfoStyles = {
     display: 'flex',
     position: 'relative',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     width: '100%',
     height: '110px',
     fontSize: '176%',
-    top: '400px',
-    right: '20%',
+    top: '450px',
+    right: '10px'
 };
 
 const countryStyles = {
@@ -29,10 +23,15 @@ const countryStyles = {
 };
 
 const fighterNameStyles = {
+    display: 'flex',
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
     color: 'black',
     fontSize: '80px',
     fontFamily: 'Lato',
     fontWeight: '700',
+    right: '35px'
 };
 
 const recordStyles= {
@@ -42,12 +41,7 @@ const recordStyles= {
     fontWeight: '600',
     bottom: '5px',
     color: '#b30000',
-};
-
-const line = {
-    width: '100%',
-    height: '2px',
-    backgroundColor: 'black',
+    top: '5px'
 };
 
 class Header extends Component {
@@ -57,24 +51,18 @@ class Header extends Component {
 
     render() {
         return (
-            <div style={container}>
-                {/*<div style={line}></div>*/}
                 <div style={fighterInfoStyles}>
                     <div style={countryStyles}>
                         {this.props.country}
                     </div>
                     <div style={fighterNameStyles}>
-                        {this.props.firstName}
-                    </div>
-                    <div style={fighterNameStyles}>
-                        {this.props.lastName}
+                        {this.props.firstName} {this.props.lastName}
                     </div>
                     <div style={recordStyles}>
                         {this.props.record}
                     </div>
                 </div>
-                <br />
-            </div>
+                // <br />
         )
     }
 }
