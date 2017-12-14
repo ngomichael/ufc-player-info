@@ -1,17 +1,23 @@
+//Creates the country, fighter name, and record elements
 import React, {Component} from 'react';
-// import Statistics from './Statistics';
 
-const fighterInfoStyles = {
-    display: 'flex',
-    position: 'relative',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    width: '100%',
-    height: '110px',
-    fontSize: '176%',
-    top: '450px',
-    right: '10px'
-};
+function animateFighterInfo(opacity) {
+    const fighterInfoStyles = {
+        display: 'flex',
+        position: 'relative',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        width: '100%',
+        height: '110px',
+        fontSize: '176%',
+        top: '450px',
+        right: '10px',
+        transition: 'all 1.5s ease',
+        opacity: opacity
+    };
+
+    return fighterInfoStyles;
+}
 
 const countryStyles = {
     color: 'darkblue',
@@ -47,11 +53,22 @@ const recordStyles= {
 class Header extends Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            opacity: 0
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.opacity !== nextProps.opacity) {
+            setTimeout(function () { this.setState({opacity: nextProps.opacity}); }.bind(this), 1000);
+        }
     }
 
     render() {
         return (
-                <div style={fighterInfoStyles}>
+            <div>
+                <div style={animateFighterInfo(this.state.opacity)}>
                     <div style={countryStyles}>
                         {this.props.country}
                     </div>
@@ -62,7 +79,7 @@ class Header extends Component {
                         {this.props.record}
                     </div>
                 </div>
-                // <br />
+            </div>
         )
     }
 }

@@ -1,3 +1,4 @@
+//Displays the first page that the user sees
 import React, {Component} from 'react';
 import _ from 'lodash'
 import FighterInfo from './FighterInfo';
@@ -26,10 +27,10 @@ const rankingsAndUnderlineContainer = {
     top: '100px'
 };
 
+//animates 'Pound for Pound" title
 function animateRankingsTitle(opacity) {
     const rankingsTitle = {
         position: 'relative',
-        // left: '5%',
         letterSpacing: '5px',
         fontFamily: 'Roboto Slab',
         fontWeight: '400',
@@ -41,6 +42,7 @@ function animateRankingsTitle(opacity) {
     return rankingsTitle;
 }
 
+//animates underline under 'Pound for Pound' title
 function animateUnderline(width) {
     const underline = {
         position: 'relative',
@@ -61,6 +63,7 @@ class FrontPage extends Component {
         this.state = {
             width: '0',
             opacity: '0',
+            headerOpacity: '0',
 
             firstName: 'First',
             lastName: 'Last',
@@ -75,12 +78,15 @@ class FrontPage extends Component {
         };
     }
 
-    changeFighter(newFirstName, newLastName, newCountry, newRecord, strikesPerMinute, strikeDifferential, knockdownsLanded, submissionAttempts, submissions, totalStrikesLanded) {
+    //Function passed to CreateFighter component to change this component's states
+    //when a fighter is clicked
+    changeFighter(newFirstName, newLastName, newCountry, newRecord, headerOpacity, strikesPerMinute, strikeDifferential, knockdownsLanded, submissionAttempts, submissions, totalStrikesLanded) {
         this.setState({
             firstName: newFirstName,
             lastName: newLastName,
             country: newCountry,
             record: newRecord,
+            headerOpacity: headerOpacity,
             strikesPerMinute: strikesPerMinute,
             strikeDifferential: strikeDifferential,
             knockdownsLanded: knockdownsLanded,
@@ -90,6 +96,8 @@ class FrontPage extends Component {
         })
     }
 
+    //Changes the opacity of 'Pound for Pound' title and width of underline under
+    //'Pound for Pound' title after component mounts
     componentDidMount() {
         setTimeout(function() { this.setState({width: 100}); }.bind(this), 1);
         setTimeout(function() { this.setState({opacity: 1}); }.bind(this), 1);
@@ -109,41 +117,41 @@ class FrontPage extends Component {
                         <div style={animateRankingsTitle(this.state.opacity)}>Pound for Pound</div>
                         <div style={animateUnderline(this.state.width)}></div>
                         <ol>
-                            <CreateFighter firstName="Demetrious" lastName="Johnson" country="United States" record="16-2-1"
+                            <CreateFighter firstName="Demetrious" lastName="Johnson" country="United States" record="16-2-1" headerOpacity= '1'
                                      strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Conor" lastName="McGregor" country="Ireland" record="9-1"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Conor" lastName="McGregor" country="Ireland" record="9-1" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Stipe" lastName="Miocic" country="United States" record="11-2"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Stipe" lastName="Miocic" country="United States" record="11-2" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)}  submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Max" lastName="Holloway" country="United States" record="14-3"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded="8"
+                            <CreateFighter firstName="Max" lastName="Holloway" country="United States" record="14-3" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Daniel" lastName="Cormier" country="United States" record="12-1"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Daniel" lastName="Cormier" country="United States" record="12-1" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Cody" lastName="Garbrandt" country="United States" record="6-0"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Cody" lastName="Garbrandt" country="United States" record="6-0" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Joanna" lastName="Jedrzejczyk" country="Poland"  record="8-0"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Joanna" lastName="Jedrzejczyk" country="Poland"  record="8-0" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Tyron" lastName="Woodley" country="United States"  record="8-0"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Tyron" lastName="Woodley" country="United States"  record="8-0" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Jose" lastName="Aldo" country="Brazil"  record="8-0"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Jose" lastName="Aldo" country="Brazil"  record="8-0" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
-                            <CreateFighter firstName="Dominick" lastName="Cruz" country="United States"  record="8-0"
-                                     strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
+                            <CreateFighter firstName="Dominick" lastName="Cruz" country="United States"  record="8-0" headerOpacity= '1'
+                                           strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
                         </ol>
                     </div>
                 </div>
                 <div>
-                    <FighterInfo firstName={this.state.firstName} lastName={this.state.lastName} country={this.state.country} record={this.state.record}
+                    <FighterInfo firstName={this.state.firstName} lastName={this.state.lastName} country={this.state.country} record={this.state.record} headerOpacity={this.state.headerOpacity}
                                  strikesPerMinute={this.state.strikesPerMinute} strikeDifferential={this.state.strikeDifferential}
                                  knockdownsLanded={this.state.knockdownsLanded} submissionAttempts={this.state.submissionAttempts} submissions={this.state.submissions} totalStrikesLanded={this.state.totalStrikesLanded}/>
                 </div>

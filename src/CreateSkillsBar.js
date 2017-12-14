@@ -1,3 +1,4 @@
+//Crates the skills bar
 import React, {Component} from 'react';
 
 const container = {

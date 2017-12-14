@@ -1,8 +1,11 @@
+//Creates the list of fighters in the FrontPage component
 import React, {Component} from 'react';
 import { configureAnchors } from 'react-scrollable-anchor'
 
 configureAnchors({offset: -60, scrollDuration: 1000});
 
+//returns rankingsList styles and allows letterSpacing to change
+//on mouseover and mouseout
 function hoverFighter(spacing) {
     const rankingsList = {
         fontSize: '30px',
@@ -44,12 +47,11 @@ class Fighter extends Component {
         })
     }
 
-
+    //when a fighter is clicked it calls this method which changes the states of FrontPage
     handleChange() {
-        this.props.changeFighter(this.props.firstName, this.props.lastName, this.props.country, this.props.record, this.props.strikesPerMinute,
+        this.props.changeFighter(this.props.firstName, this.props.lastName, this.props.country, this.props.record, this.props.strikesPerMinute, this.props.headerOpacity,
         this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissionAttempts ,this.props.submissions, this.props.totalStrikesLanded);
     }
-
 
 
     render() {

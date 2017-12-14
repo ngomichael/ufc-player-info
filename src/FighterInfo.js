@@ -1,3 +1,4 @@
+//Displays the arrow, country, fighter name, record, and skills bars
 import React, {Component} from 'react';
 import Header from './Header';
 import Statistics from './Statistics'
@@ -50,12 +51,11 @@ class FighterInfo extends Component {
         return (
             <div>
                 <div>
-                    {/*Has to do something with this that's why a div is covering some of the fighters*/}
-                    <Header firstName={this.props.firstName} lastName={this.props.lastName} country={this.props.country} record={this.props.record}/>
+                    <Header firstName={this.props.firstName} lastName={this.props.lastName}
+                            country={this.props.country} record={this.props.record} opacity={this.props.headerOpacity}/>
                 </div>
 
                 <a href="#header" style={fighterChangeStyle} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
-                    {/*Change*/}
                     <div style={arrowStyle}>
                         <FontAwesome
                             className='fa fa-long-arrow-up fa-4x'
@@ -63,9 +63,7 @@ class FighterInfo extends Component {
                             cssModule={faStyles}
                         />
                     </div>
-                    {/*Fighter*/}
                 </a>
-
 
                 <div>
                     <Statistics  strikesPerMinute={this.props.strikesPerMinute} strikeDifferential={this.props.strikeDifferential}
