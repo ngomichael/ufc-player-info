@@ -18,8 +18,6 @@ const fighterChangeStyle = {
     top: '190px'
 };
 
-
-
 const arrowStyle = {
     color: 'black',
 };

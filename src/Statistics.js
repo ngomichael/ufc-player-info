@@ -1,3 +1,4 @@
+//Displays skills bars
 import React, {Component} from 'react';
 import CreateSkillsBar from './CreateSkillsBar';
 import ScrollableAnchor from 'react-scrollable-anchor'

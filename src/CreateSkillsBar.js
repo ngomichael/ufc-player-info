@@ -1,4 +1,4 @@
-//Crates the skills bar
+//Creates the skills bar
 import React, {Component} from 'react';
 
 const container = {
@@ -42,6 +42,7 @@ const spaceBetweenSkillBar = {
     height: '40px'
 };
 
+//Returns styles that takes a number and uses that as its width
 function createInnerSkillsStyle(width) {
     const innerSkillsStyle = {
         width: width + '%',
@@ -68,21 +69,24 @@ class CreateSkillsBar extends Component {
         };
     }
 
+    //adds 1 to the current value of the state count and takes in a number for setTimeout
     addToCount(milliseconds) {
         setTimeout(function() { this.setState({count: this.state.count + 1}); }.bind(this), milliseconds);
     }
 
+    //calls addToCount based off of the statistic number using a for loop
+    //divides 1500ms by the statistic number and adds that to totalMilliseconds so the number and skills bar finish animating at the same time
     callAddToCount() {
         let totalMilliseconds = 0;
-        let milliseconds = 1250/this.props.statisticNumber;
+        let milliseconds = 1500/this.props.statisticNumber;
         for (let i = 0; i < this.props.statisticNumber; i++) {
-
             totalMilliseconds = totalMilliseconds + (milliseconds);
             this.addToCount(totalMilliseconds);
         }
     }
 
     //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
+    //If it is different then it calls setState and changes the value of statNum and count and calls callAddToCount
     componentWillReceiveProps(nextProps) {
         if(this.props.statisticNumber !== nextProps.statisticNumber) {
             setTimeout(function() { this.setState({statNum: nextProps.statisticNumber}); }.bind(this), 1000);

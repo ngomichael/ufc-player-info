@@ -80,7 +80,8 @@ class FrontPage extends Component {
 
     //Function passed to CreateFighter component to change this component's states
     //when a fighter is clicked
-    changeFighter(newFirstName, newLastName, newCountry, newRecord, headerOpacity, strikesPerMinute, strikeDifferential, knockdownsLanded, submissionAttempts, submissions, totalStrikesLanded) {
+    changeFighter(newFirstName, newLastName, newCountry, newRecord, headerOpacity, strikesPerMinute,
+                  strikeDifferential, knockdownsLanded, submissionAttempts, submissions, totalStrikesLanded) {
         this.setState({
             firstName: newFirstName,
             lastName: newLastName,
@@ -102,7 +103,6 @@ class FrontPage extends Component {
         setTimeout(function() { this.setState({width: 100}); }.bind(this), 1);
         setTimeout(function() { this.setState({opacity: 1}); }.bind(this), 1);
     }
-
 
     render() {
         return (
@@ -151,9 +151,11 @@ class FrontPage extends Component {
                     </div>
                 </div>
                 <div>
-                    <FighterInfo firstName={this.state.firstName} lastName={this.state.lastName} country={this.state.country} record={this.state.record} headerOpacity={this.state.headerOpacity}
+                    <FighterInfo firstName={this.state.firstName} lastName={this.state.lastName} country={this.state.country}
+                                 record={this.state.record} headerOpacity={this.state.headerOpacity}
                                  strikesPerMinute={this.state.strikesPerMinute} strikeDifferential={this.state.strikeDifferential}
-                                 knockdownsLanded={this.state.knockdownsLanded} submissionAttempts={this.state.submissionAttempts} submissions={this.state.submissions} totalStrikesLanded={this.state.totalStrikesLanded}/>
+                                 knockdownsLanded={this.state.knockdownsLanded} submissionAttempts={this.state.submissionAttempts}
+                                 submissions={this.state.submissions} totalStrikesLanded={this.state.totalStrikesLanded}/>
                 </div>
             </div>
         )

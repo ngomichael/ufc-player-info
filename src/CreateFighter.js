@@ -53,7 +53,6 @@ class Fighter extends Component {
         this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissionAttempts ,this.props.submissions, this.props.totalStrikesLanded);
     }
 
-
     render() {
         return (
             <div>

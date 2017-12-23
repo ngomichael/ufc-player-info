@@ -1,4 +1,4 @@
-//Creates the country, fighter name, and record elements
+//Displays the country, fighter name, and record
 import React, {Component} from 'react';
 
 function animateFighterInfo(opacity) {
@@ -59,6 +59,8 @@ class Header extends Component {
         }
     }
 
+    //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
+    //If they are different then it calls setState and changes the value of opacity
     componentWillReceiveProps(nextProps) {
         if (this.props.opacity !== nextProps.opacity) {
             setTimeout(function () { this.setState({opacity: nextProps.opacity}); }.bind(this), 1000);
@@ -83,10 +85,5 @@ class Header extends Component {
         )
     }
 }
-
-// Header.propTypes = {
-//     country: React.PropTypes.string.isRequired,
-//     fighterName: React.PropTypes.string.isRequired
-// };
 
 export default Header
