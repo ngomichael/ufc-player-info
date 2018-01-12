@@ -6,7 +6,12 @@ import CreateFighter from './CreateFighter';
 import ScrollableAnchor from 'react-scrollable-anchor'
 
 const fighterData = {
-    DJ: {
+    Demetrious: {
+        firstName: "Demetrious",
+        LastName: "Johnson",
+        country: "United States",
+        record: "16-2-1",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -16,6 +21,11 @@ const fighterData = {
     },
 
     Conor: {
+        firstName: "Conor",
+        LastName: "McGregor",
+        country: "Ireland",
+        record: "9-1",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -25,6 +35,11 @@ const fighterData = {
     },
 
     Stipe: {
+        firstName: "Stipe",
+        LastName: "Miocic",
+        country: "United States",
+        record: "11-2",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -34,6 +49,11 @@ const fighterData = {
     },
 
     Max: {
+        firstName: "Max",
+        LastName: "Holloway",
+        country: "United States",
+        record: "14-3",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -42,7 +62,12 @@ const fighterData = {
         totalStrikesLanded: _.random(0, 100)
     },
 
-    DC: {
+    Daniel: {
+        firstName: "Daniel",
+        LastName: "Cormier",
+        country: "United States",
+        record: "12-1",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -52,6 +77,11 @@ const fighterData = {
     },
 
     Cody: {
+        firstName: "Cody",
+        LastName: "Garbrandt",
+        country: "United States",
+        record: "6-0",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -60,7 +90,12 @@ const fighterData = {
         totalStrikesLanded: _.random(0, 100)
     },
 
-    JJ: {
+    Joanna: {
+        firstName: "Joanna",
+        LastName: "Jedrzejczyk",
+        country: "Poland",
+        record: "8-1",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -70,6 +105,11 @@ const fighterData = {
     },
 
     Tyron: {
+        firstName: "Tyron",
+        LastName: "Woodley",
+        country: "United States",
+        record: "8-0",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -79,6 +119,11 @@ const fighterData = {
     },
 
     Jose: {
+        firstName: "Jose",
+        LastName: "Aldo",
+        country: "Brazil",
+        record: "8-2",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -87,7 +132,12 @@ const fighterData = {
         totalStrikesLanded: _.random(0, 100)
     },
 
-    Dom: {
+    Dominick: {
+        firstName: "Dominick",
+        LastName: "Cruz",
+        country: "United States",
+        record: "8-1",
+        headerOpacity: "1",
         strikesLandedPerMinute: _.random(0, 100),
         strikeDifferential: _.random(0, 100),
         knockdownsLanded: _.random(0, 100),
@@ -171,20 +221,20 @@ class FrontPage extends Component {
 
     //Function passed to CreateFighter component to change this component's states
     //when a fighter is clicked
-    changeFighter(newFirstName, newLastName, newCountry, newRecord, headerOpacity, strikesPerMinute,
-                  strikeDifferential, knockdownsLanded, submissionAttempts, submissions, totalStrikesLanded) {
+    changeFighter(id) {
+        const fighter = fighterData[id] 
         this.setState({
-            firstName: newFirstName,
-            lastName: newLastName,
-            country: newCountry,
-            record: newRecord,
-            headerOpacity: headerOpacity,
-            strikesPerMinute: strikesPerMinute,
-            strikeDifferential: strikeDifferential,
-            knockdownsLanded: knockdownsLanded,
-            submissionAttempts: submissionAttempts,
-            submissions: submissions,
-            totalStrikesLanded: totalStrikesLanded
+            firstName: fighter.firstName,
+            lastName: fighter.lastName,
+            country: fighter.country,
+            record: fighter.record,
+            headerOpacity: fighter.headerOpacity,
+            strikesPerMinute: fighter.strikesLandedPerMinute,
+            strikeDifferential: fighter.strikeDifferential,
+            knockdownsLanded: fighter.knockdownsLanded,
+            submissionAttempts: fighter.submissionAttempts,
+            submissions: fighter.submissions,
+            totalStrikesLanded: fighter.totalStrikesLanded
         })
     }
 
@@ -208,6 +258,8 @@ class FrontPage extends Component {
                         <div style={animateRankingsTitle(this.state.opacity)}>Pound for Pound</div>
                         <div style={animateUnderline(this.state.width)}></div>
                         <ol>
+                            <CreateFighter firstName={fighterData.Demetrious.firstName} lastName={fighterData.Demetrious.lastName} 
+                            onClick={() => this.changeFighter("Demetrious")}/>
                             <CreateFighter firstName="Demetrious" lastName="Johnson" country="United States" record="16-2-1" headerOpacity= '1'
                                      strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
