@@ -8,7 +8,7 @@ import ScrollableAnchor from 'react-scrollable-anchor'
 const fighterData = {
     Demetrious: {
         firstName: "Demetrious",
-        LastName: "Johnson",
+        lastName: "Johnson",
         country: "United States",
         record: "16-2-1",
         headerOpacity: "1",
@@ -22,7 +22,7 @@ const fighterData = {
 
     Conor: {
         firstName: "Conor",
-        LastName: "McGregor",
+        lastName: "McGregor",
         country: "Ireland",
         record: "9-1",
         headerOpacity: "1",
@@ -36,7 +36,7 @@ const fighterData = {
 
     Stipe: {
         firstName: "Stipe",
-        LastName: "Miocic",
+        lastName: "Miocic",
         country: "United States",
         record: "11-2",
         headerOpacity: "1",
@@ -50,7 +50,7 @@ const fighterData = {
 
     Max: {
         firstName: "Max",
-        LastName: "Holloway",
+        lastName: "Holloway",
         country: "United States",
         record: "14-3",
         headerOpacity: "1",
@@ -64,7 +64,7 @@ const fighterData = {
 
     Daniel: {
         firstName: "Daniel",
-        LastName: "Cormier",
+        lastName: "Cormier",
         country: "United States",
         record: "12-1",
         headerOpacity: "1",
@@ -78,7 +78,7 @@ const fighterData = {
 
     Cody: {
         firstName: "Cody",
-        LastName: "Garbrandt",
+        lastName: "Garbrandt",
         country: "United States",
         record: "6-0",
         headerOpacity: "1",
@@ -92,7 +92,7 @@ const fighterData = {
 
     Joanna: {
         firstName: "Joanna",
-        LastName: "Jedrzejczyk",
+        lastName: "Jedrzejczyk",
         country: "Poland",
         record: "8-1",
         headerOpacity: "1",
@@ -106,7 +106,7 @@ const fighterData = {
 
     Tyron: {
         firstName: "Tyron",
-        LastName: "Woodley",
+        lastName: "Woodley",
         country: "United States",
         record: "8-0",
         headerOpacity: "1",
@@ -120,7 +120,7 @@ const fighterData = {
 
     Jose: {
         firstName: "Jose",
-        LastName: "Aldo",
+        lastName: "Aldo",
         country: "Brazil",
         record: "8-2",
         headerOpacity: "1",
@@ -134,7 +134,7 @@ const fighterData = {
 
     Dominick: {
         firstName: "Dominick",
-        LastName: "Cruz",
+        lastName: "Cruz",
         country: "United States",
         record: "8-1",
         headerOpacity: "1",
@@ -211,25 +211,25 @@ class FrontPage extends Component {
             country: 'Country',
             record: '0-0',
 
-            strikesPerMinute: '0',
-            strikeDifferential: '0',
-            knockdownsLanded: '0',
-            submissionAttempts: '0',
-            totalStrikesLanded: '0'
+            strikesLandedPerMinute: 0,
+            strikeDifferential: 0,
+            knockdownsLanded: 0,
+            submissionAttempts: 0,
+            totalStrikesLanded: 0
         };
     }
 
     //Function passed to CreateFighter component to change this component's states
     //when a fighter is clicked
     changeFighter(id) {
-        const fighter = fighterData[id] 
+        const fighter = fighterData.id 
         this.setState({
             firstName: fighter.firstName,
             lastName: fighter.lastName,
             country: fighter.country,
             record: fighter.record,
             headerOpacity: fighter.headerOpacity,
-            strikesPerMinute: fighter.strikesLandedPerMinute,
+            strikesLandedPerMinute: fighter.strikesLandedPerMinute,
             strikeDifferential: fighter.strikeDifferential,
             knockdownsLanded: fighter.knockdownsLanded,
             submissionAttempts: fighter.submissionAttempts,
@@ -260,6 +260,7 @@ class FrontPage extends Component {
                         <ol>
                             <CreateFighter firstName={fighterData.Demetrious.firstName} lastName={fighterData.Demetrious.lastName} 
                             onClick={() => this.changeFighter("Demetrious")}/>
+
                             <CreateFighter firstName="Demetrious" lastName="Johnson" country="United States" record="16-2-1" headerOpacity= '1'
                                      strikesPerMinute={_.random(1, 100)} strikeDifferential={_.random(1, 100)} knockdownsLanded={_.random(1, 100)}
                                      submissions={_.random(1, 100)} submissionAttempts={_.random(1, 100)} totalStrikesLanded={_.random(1, 100)} changeFighter={this.changeFighter}/>
@@ -296,7 +297,7 @@ class FrontPage extends Component {
                 <div>
                     <FighterInfo firstName={this.state.firstName} lastName={this.state.lastName} country={this.state.country}
                                  record={this.state.record} headerOpacity={this.state.headerOpacity}
-                                 strikesPerMinute={this.state.strikesPerMinute} strikeDifferential={this.state.strikeDifferential}
+                                 strikesLandedPerMinute={this.state.strikesLandedPerMinute} strikeDifferential={this.state.strikeDifferential}
                                  knockdownsLanded={this.state.knockdownsLanded} submissionAttempts={this.state.submissionAttempts}
                                  submissions={this.state.submissions} totalStrikesLanded={this.state.totalStrikesLanded}/>
                 </div>

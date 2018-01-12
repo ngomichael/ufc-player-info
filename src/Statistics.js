@@ -33,7 +33,7 @@ class Statistics extends Component {
                 </ScrollableAnchor>
 
                 <div style={leftStatisticStyles}>
-                    <CreateSkillsBar statisticNumber={this.props.strikesPerMinute} statisticName="Strikes Landed Per Minute" />
+                    <CreateSkillsBar statisticNumber={this.props.strikesLandedPerMinute} statisticName="Strikes Landed Per Minute" />
                     <CreateSkillsBar statisticNumber={this.props.strikeDifferential} statisticName="Strike Differential" />
                     <CreateSkillsBar statisticNumber={this.props.knockdownsLanded} statisticName="Knockdowns Landed" />
                 </div>

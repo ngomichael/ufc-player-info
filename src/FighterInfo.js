@@ -64,7 +64,7 @@ class FighterInfo extends Component {
                 </a>
 
                 <div>
-                    <Statistics  strikesPerMinute={this.props.strikesPerMinute} strikeDifferential={this.props.strikeDifferential}
+                    <Statistics  strikesLandedPerMinute={this.props.strikesLandedPerMinute} strikeDifferential={this.props.strikeDifferential}
                                  knockdownsLanded={this.props.knockdownsLanded} submissionAttempts={this.props.submissionAttempts}
                                  submissions={this.props.submissions} totalStrikesLanded={this.props.totalStrikesLanded}/>
                 </div>
