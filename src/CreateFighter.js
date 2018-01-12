@@ -47,17 +47,11 @@ class Fighter extends Component {
         })
     }
 
-    //when a fighter is clicked it calls this method which changes the states of FrontPage
-    handleChange() {
-        this.props.changeFighter(this.props.firstName, this.props.lastName, this.props.country, this.props.record, this.props.strikesPerMinute, this.props.headerOpacity,
-        this.props.strikeDifferential, this.props.knockdownsLanded, this.props.submissionAttempts ,this.props.submissions, this.props.totalStrikesLanded);
-    }
-
     render() {
         return (
             <div>
                 <a href="#statistics" style={anchorStyle}>
-                    <li onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} onClick={this.handleChange} style={hoverFighter(this.state.letterSpacing)}>
+                    <li onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} style={hoverFighter(this.state.letterSpacing)}>
                         {this.props.firstName} {this.props.lastName}
                     </li>
                 </a>
