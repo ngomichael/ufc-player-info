@@ -29,7 +29,6 @@ class Fighter extends Component {
         super(props);
         this.onMouseOver = this.onMouseOver.bind(this);
         this.onMouseOut = this.onMouseOut.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.state = {
             letterSpacing: 0,
         };

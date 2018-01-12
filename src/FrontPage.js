@@ -5,15 +5,106 @@ import FighterInfo from './FighterInfo';
 import CreateFighter from './CreateFighter';
 import ScrollableAnchor from 'react-scrollable-anchor'
 
+const fighterData = {
+    DJ: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Conor: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Stipe: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Max: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    DC: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Cody: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    JJ: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Tyron: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Jose: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    },
+
+    Dom: {
+        strikesLandedPerMinute: _.random(0, 100),
+        strikeDifferential: _.random(0, 100),
+        knockdownsLanded: _.random(0, 100),
+        submissionAttempts: _.random(0, 100),
+        submissions: _.random(0, 100),
+        totalStrikesLanded: _.random(0, 100)
+    }
+}
+
 const titleStyles = {
-    display: 'flex',
-    position: 'relative',
     width: '1em',
     letterSpacing: '25px',
     flexDirection: 'column',
     fontFamily: 'Roboto Slab',
     fontWeight: '700',
     fontSize: '700%',
+    paddingLeft: '50px'
 };
 
 const frontPageStyles = {
