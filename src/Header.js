@@ -1,5 +1,6 @@
 //Displays the country, fighter name, and record
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 
 function animateFighterInfo(opacity) {
     const fighterInfoStyles = {
@@ -84,6 +85,14 @@ class Header extends Component {
             </div>
         )
     }
+}
+
+Header.propTypes = {
+    opacity: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    record: PropTypes.string.isRequired
 }
 
 export default Header

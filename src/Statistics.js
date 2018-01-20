@@ -1,12 +1,13 @@
 //Displays skills bars
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import CreateSkillsBar from './CreateSkillsBar';
 import ScrollableAnchor from 'react-scrollable-anchor'
 
 const statisticContainer = {
     position: 'relative',
     //This is what makes the width of the page a lot larger
-    left: '900px'
+    left: '900px',
 };
 
 const leftStatisticStyles = {
@@ -40,6 +41,15 @@ class Statistics extends Component {
             </div>
         )
     }
+}
+
+Statistics.propTypes = {
+    strikesLandedPerMinute: PropTypes.number.isRequired,
+    strikeDifferential: PropTypes.number.isRequired,
+    knockdownsLanded: PropTypes.number.isRequired,
+    submissionAttempts: PropTypes.number.isRequired,
+    submissions: PropTypes.number.isRequired,
+    totalStrikesLanded: PropTypes.number.isRequired
 }
 
 export default Statistics

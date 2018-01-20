@@ -1,5 +1,6 @@
 //Creates the list of fighters in the FrontPage component
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 import { configureAnchors } from 'react-scrollable-anchor'
 
 configureAnchors({offset: -60, scrollDuration: 1000});
@@ -50,7 +51,10 @@ class Fighter extends Component {
         return (
             <div>
                 <a href="#statistics" style={anchorStyle}>
-                    <li onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut} style={hoverFighter(this.state.letterSpacing)}>
+                    <li onClick={this.props.onClick} 
+                        onMouseOver={this.onMouseOver} 
+                        onMouseOut={this.onMouseOut} 
+                        style={hoverFighter(this.state.letterSpacing)}>
                         {this.props.firstName} {this.props.lastName}
                     </li>
                 </a>
@@ -59,5 +63,11 @@ class Fighter extends Component {
         )
     }
 }
+
+Fighter.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired
+};
 
 export default Fighter

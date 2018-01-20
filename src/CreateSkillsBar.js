@@ -1,5 +1,6 @@
 //Creates the skills bar
 import React, {Component} from 'react';
+import PropTypes from "prop-types";
 
 const container = {
     display: 'flex',
@@ -108,6 +109,10 @@ class CreateSkillsBar extends Component {
             </div>
         )
     };
+}
+
+CreateSkillsBar.propTypes = {
+    statisticNumber: PropTypes.number.isRequired
 }
 
 export default CreateSkillsBar
