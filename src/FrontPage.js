@@ -1,9 +1,15 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
+import { createStore } from "redux";
 import _ from "lodash";
 import FighterInfo from "./FighterInfo";
 import CreateFighter from "./CreateFighter";
 import ScrollableAnchor from "react-scrollable-anchor";
+//import reducer
+import fighter from "../state/reducer/reducer";
+import changeFighter from "../state/actions/actions";
+
+let store = createStore(fighter);
 
 const fighterData = {
   Demetrious: {
@@ -196,7 +202,6 @@ function animateUnderline(width) {
 
   return underline;
 }
-
 
 class FrontPage extends Component {
   constructor(props) {
