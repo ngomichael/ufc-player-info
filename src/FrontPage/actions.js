@@ -1,5 +1,4 @@
-//Action Type
-export const CHANGE_FIGHTER = "CHANGE_FIGHTER";
+import { CHANGE_FIGHTER } from "./actionTypes";
 
 //Action Creator
 export function changeFighter(fighter) {
@@ -7,4 +6,5 @@ export function changeFighter(fighter) {
     type: CHANGE_FIGHTER,
     fighter
   };
+  return action;
 }

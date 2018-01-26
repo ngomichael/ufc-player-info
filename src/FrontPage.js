@@ -6,10 +6,10 @@ import FighterInfo from "./FighterInfo";
 import CreateFighter from "./CreateFighter";
 import ScrollableAnchor from "react-scrollable-anchor";
 //import reducer
-import fighter from "../state/reducer/reducer";
-import changeFighter from "../state/actions/actions";
-
-let store = createStore(fighter);
+import { fighter } from "./FrontPage/reducer";
+//import action
+import { CHANGE_FIGHTER } from "./FrontPage/actionTypes";
+import { changeFighter } from "./FrontPage/actions";
 
 const fighterData = {
   Demetrious: {
@@ -17,7 +17,7 @@ const fighterData = {
     lastName: "Johnson",
     country: "United States",
     record: "16-2-1",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -31,7 +31,7 @@ const fighterData = {
     lastName: "McGregor",
     country: "Ireland",
     record: "9-1",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -45,7 +45,7 @@ const fighterData = {
     lastName: "Miocic",
     country: "United States",
     record: "11-2",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -59,7 +59,7 @@ const fighterData = {
     lastName: "Holloway",
     country: "United States",
     record: "14-3",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -73,7 +73,7 @@ const fighterData = {
     lastName: "Cormier",
     country: "United States",
     record: "12-1",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -87,7 +87,7 @@ const fighterData = {
     lastName: "Garbrandt",
     country: "United States",
     record: "6-0",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -101,7 +101,7 @@ const fighterData = {
     lastName: "Jedrzejczyk",
     country: "Poland",
     record: "8-1",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -115,7 +115,7 @@ const fighterData = {
     lastName: "Woodley",
     country: "United States",
     record: "8-0",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -129,7 +129,7 @@ const fighterData = {
     lastName: "Aldo",
     country: "Brazil",
     record: "8-2",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -143,7 +143,7 @@ const fighterData = {
     lastName: "Cruz",
     country: "United States",
     record: "8-1",
-    headerOpacity: 1,
+    headerOpacity: "1",
     strikesLandedPerMinute: _.random(0, 100),
     strikeDifferential: _.random(0, 100),
     knockdownsLanded: _.random(0, 100),
@@ -152,6 +152,24 @@ const fighterData = {
     totalStrikesLanded: _.random(0, 100)
   }
 };
+
+// console.log(fighter);
+
+let store = createStore(fighter);
+
+// console.log(changeFighter);
+
+console.log(store.getState());
+
+const unsubscribe = store.subscribe(() => console.log(store.getState()));
+
+console.log(Object.keys(fighterData)[0]);
+
+store.dispatch(changeFighter(Object.keys(fighterData)[0]));
+
+// Object.keys(fighterData).map(fighterName =>
+//   store.dispatch(changeFighter(fighterName))
+// );
 
 const titleStyles = {
   width: "1em",

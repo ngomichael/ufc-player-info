@@ -1,3 +1,6 @@
+//Onclick call dispatch with the fighters name you clicked on
+//Move actionTypes, action, reducer inside folder called FrontPage
+
 //Displays the arrow, country, fighter name, record, and skills bars
 import React, { Component } from "react";
 import FontAwesome from "react-fontawesome";
@@ -22,7 +25,6 @@ const fighterChangeStyle = {
 const arrowStyle = {
   color: "black"
 };
-
 
 class FighterInfo extends Component {
   constructor(props) {

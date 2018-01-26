@@ -1,4 +1,4 @@
-import CHANGE_FIGHTER from "../actions/actions";
+import { CHANGE_FIGHTER } from "./actionTypes";
 
 //Reducer
 export function fighter(
@@ -16,6 +16,6 @@ export function fighter(
         fighterData: action.fighter
       };
     default:
-      state;
+      return state;
   }
 }
