@@ -3,8 +3,8 @@ import { CHANGE_FIGHTER } from "./actionTypes";
 //Reducer
 export function fighter(
   state = {
-    fighterData: {},
-    otherProp: null
+    fighter: {}
+    // otherProp: null
   },
   action
 ) {
@@ -13,7 +13,7 @@ export function fighter(
     case CHANGE_FIGHTER:
       return {
         ...state,
-        fighterData: action.fighter
+        fighter: action.fighter
       };
     default:
       return state;

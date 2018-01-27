@@ -1,12 +1,12 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
 import { createStore } from "redux";
+import { connect } from "react-redux";
 import _ from "lodash";
 import FighterInfo from "./FighterInfo";
 import CreateFighter from "./CreateFighter";
 import ScrollableAnchor from "react-scrollable-anchor";
 import { fighter } from "./FrontPage/reducer";
-import { CHANGE_FIGHTER } from "./FrontPage/actionTypes";
 import { changeFighter } from "./FrontPage/actions";
 
 const fighterData = {
@@ -151,16 +151,6 @@ const fighterData = {
   }
 };
 
-let store = createStore(fighter);
-
-console.log(store.getState());
-
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-console.log(Object.keys(fighterData)[0]);
-
-store.dispatch(changeFighter(Object.keys(fighterData)[0]));
-
 const titleStyles = {
   width: "1em",
   letterSpacing: "25px",
@@ -214,6 +204,7 @@ function animateUnderline(width) {
 class FrontPage extends Component {
   constructor(props) {
     super(props);
+    this.props.changeFighter(fighterData.Cody);
     this.changeFighter = this.changeFighter.bind(this);
     this.state = {
       width: "0",
@@ -263,6 +254,7 @@ class FrontPage extends Component {
   }
 
   render() {
+    console.log(this.props.fighter);
     return (
       <div>
         <div style={frontPageStyles}>
@@ -294,4 +286,10 @@ class FrontPage extends Component {
   }
 }
 
-export default FrontPage;
+const mapStateToProps = state => {
+  return {
+    fighter: state.fighter
+  };
+};
+
+export default connect(mapStateToProps, { changeFighter })(FrontPage);
