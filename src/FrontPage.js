@@ -153,8 +153,6 @@ const fighterData = {
   }
 };
 
-// console.log(fighter);
-
 let store = createStore(fighter);
 
 // console.log(changeFighter);
@@ -166,10 +164,6 @@ const unsubscribe = store.subscribe(() => console.log(store.getState()));
 console.log(Object.keys(fighterData)[0]);
 
 store.dispatch(changeFighter(Object.keys(fighterData)[0]));
-
-// Object.keys(fighterData).map(fighterName =>
-//   store.dispatch(changeFighter(fighterName))
-// );
 
 const titleStyles = {
   width: "1em",
