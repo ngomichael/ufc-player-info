@@ -5,9 +5,7 @@ import _ from "lodash";
 import FighterInfo from "./FighterInfo";
 import CreateFighter from "./CreateFighter";
 import ScrollableAnchor from "react-scrollable-anchor";
-//import reducer
 import { fighter } from "./FrontPage/reducer";
-//import action
 import { CHANGE_FIGHTER } from "./FrontPage/actionTypes";
 import { changeFighter } from "./FrontPage/actions";
 
@@ -154,8 +152,6 @@ const fighterData = {
 };
 
 let store = createStore(fighter);
-
-// console.log(changeFighter);
 
 console.log(store.getState());
 
