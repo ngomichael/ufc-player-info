@@ -200,41 +200,41 @@ function animateUnderline(width) {
 
   return underline;
 }
-
 class FrontPage extends Component {
   constructor(props) {
     super(props);
-    this.props.changeFighter(fighterData.Cody);
-    this.changeFighter = this.changeFighter.bind(this);
+    // this.props.changeFighter(fighterData.fighterName)
+    // this.props.changeFighter(fighterData.Cody);
+    // this.changeFighter = this.changeFighter.bind(this);
     this.state = {
       width: "0",
-      opacity: "0",
+      opacity: "0"
 
-      fighterInfo: {
-        headerOpacity: "1",
-        firstName: "First",
-        lastName: "Last",
-        country: "Country",
-        record: "0-0",
+      // fighterInfo: {
+      //   headerOpacity: "1",
+      //   firstName: "First",
+      //   lastName: "Last",
+      //   country: "Country",
+      //   record: "0-0",
 
-        strikesLandedPerMinute: 0,
-        strikeDifferential: 0,
-        knockdownsLanded: 0,
-        submissionAttempts: 0,
-        submissions: 0,
-        totalStrikesLanded: 0
-      }
+      //   strikesLandedPerMinute: 0,
+      //   strikeDifferential: 0,
+      //   knockdownsLanded: 0,
+      //   submissionAttempts: 0,
+      //   submissions: 0,
+      //   totalStrikesLanded: 0
+      // }
     };
   }
 
   //Function passed to CreateFighter component to change this component's states
   //when a fighter is clicked
-  changeFighter(id) {
-    const fighter = fighterData[id];
-    this.setState({
-      fighterInfo: fighter
-    });
-  }
+  // changeFighter(id) {
+  //   const fighter = fighterData[id];
+  //   this.setState({
+  //     fighterInfo: fighter
+  //   });
+  // }
 
   //Changes the opacity of 'Pound for Pound' title and width of underline under
   //'Pound for Pound' title after component mounts
@@ -252,9 +252,10 @@ class FrontPage extends Component {
       1
     );
   }
-
   render() {
+    //Logs fighter state
     console.log(this.props.fighter);
+    console.log(this.props.fighter.firstName);
     return (
       <div>
         <div style={frontPageStyles}>
@@ -272,24 +273,29 @@ class FrontPage extends Component {
                   key={fighterName}
                   firstName={fighterData[fighterName].firstName}
                   lastName={fighterData[fighterName].lastName}
-                  onClick={() => this.changeFighter(fighterName)}
+                  //OnClick change state to fighter that I clicked on which affects the props that go to FighterInfo
+                  onClick={() =>
+                    this.props.changeFighter(fighterData[fighterName])
+                  }
+
+                  // onClick={() => this.changeFighter(fighterName)}
                 />
               ))}
             </ol>
           </div>
         </div>
         <div>
-          <FighterInfo fighterInfo={this.state.fighterInfo} />
+          <FighterInfo fighterInfo={this.props.fighter} />
         </div>
       </div>
     );
   }
 }
-
+//Transforms the current Redux store state into the props you want to pass to presentational component
 const mapStateToProps = state => {
   return {
     fighter: state.fighter
   };
 };
-
+//Connects FrontPage to the Redux store
 export default connect(mapStateToProps, { changeFighter })(FrontPage);
