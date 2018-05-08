@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import FighterInfo from "./FighterInfo";
-import CreateFighter from "./CreateFighter";
+import Fighter from "./Fighter";
 import ScrollableAnchor from "react-scrollable-anchor";
 import { fighter } from "./FrontPage/reducer";
 import { changeFighter } from "./FrontPage/actions";
@@ -226,7 +226,7 @@ class FrontPage extends Component {
     };
   }
 
-  //Function passed to CreateFighter component to change this component's states
+  //Function passed to Fighter component to change this component's states
   //when a fighter is clicked
   // changeFighter(id) {
   //   const fighter = fighterData[id];
@@ -268,7 +268,7 @@ class FrontPage extends Component {
             <div style={animateUnderline(this.state.width)} />
             <ol>
               {Object.keys(fighterData).map(fighterName => (
-                <CreateFighter
+                <Fighter
                   key={fighterName}
                   firstName={fighterData[fighterName].firstName}
                   lastName={fighterData[fighterName].lastName}
