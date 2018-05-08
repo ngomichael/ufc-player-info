@@ -63,7 +63,7 @@ class Header extends Component {
   //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
   //If they are different then it calls setState and changes the value of opacity
   componentWillReceiveProps(nextProps) {
-    if (this.props.opacity !== nextProps.opacity) {
+    if (this.props.firstName !== nextProps.firstName) {
       setTimeout(
         function() {
           this.setState({ opacity: nextProps.opacity });
@@ -74,6 +74,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.state.opacity);
     return (
       <div>
         <div style={animateFighterInfo(this.state.opacity)}>

@@ -1,6 +1,5 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
-import { createStore } from "redux";
 import { connect } from "react-redux";
 import _ from "lodash";
 import FighterInfo from "./FighterInfo";
@@ -255,7 +254,7 @@ class FrontPage extends Component {
   render() {
     //Logs fighter state
     console.log(this.props.fighter);
-    console.log(this.props.fighter.firstName);
+    // console.log(this.props.fighter.firstName);
     return (
       <div>
         <div style={frontPageStyles}>
@@ -277,8 +276,6 @@ class FrontPage extends Component {
                   onClick={() =>
                     this.props.changeFighter(fighterData[fighterName])
                   }
-
-                  // onClick={() => this.changeFighter(fighterName)}
                 />
               ))}
             </ol>

@@ -51,7 +51,6 @@ class FighterInfo extends Component {
 
   render() {
     //   const { firstName, lastName, country } = this.props.fighterInfo;
-
     return (
       <div>
         <div>
