@@ -5,8 +5,8 @@ import _ from "lodash";
 import FighterInfo from "./FighterInfo";
 import Fighter from "./Fighter";
 import ScrollableAnchor from "react-scrollable-anchor";
-import { fighter } from "./FrontPage/reducer";
-import { changeFighter } from "./FrontPage/actions";
+// import { fighter } from "./FrontPage/reducer";
+// import { changeFighter } from "./FrontPage/actions";
 
 const fighterData = {
   Demetrious: {
@@ -288,11 +288,11 @@ class FrontPage extends Component {
     );
   }
 }
-//Transforms the current Redux store state into the props you want to pass to presentational component
-const mapStateToProps = state => {
-  return {
-    fighter: state.fighter
-  };
-};
-//Connects FrontPage to the Redux store
-export default connect(mapStateToProps, { changeFighter })(FrontPage);
+// //Transforms the current Redux store state into the props you want to pass to presentational component
+// const mapStateToProps = state => {
+//   return {
+//     fighter: state.fighter
+//   };
+// };
+// //Connects FrontPage to the Redux store
+// export default connect(mapStateToProps, { changeFighter })(FrontPage);
