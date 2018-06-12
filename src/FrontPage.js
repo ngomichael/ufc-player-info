@@ -1,14 +1,14 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import _ from "lodash";
 import FighterInfo from "./FighterInfo";
 import Fighter from "./Fighter";
 // import { Link } from "react-router-dom";
 // import { ROUTES } from "./constants";
-import ScrollableAnchor from "react-scrollable-anchor";
+// import ScrollableAnchor from "react-scrollable-anchor";
 // import { fighter } from "./FrontPage/reducer";
-import { changeFighter } from "./FrontPage/actions";
+// import { changeFighter } from "./FrontPage/actions";
 
 const fighterData = {
   Demetrious: {
@@ -255,14 +255,21 @@ class FrontPage extends Component {
   }
   render() {
     //Logs fighter state
-    console.log(this.props.fighter);
+    // console.log(this.props.fighter);
+
+    const arr = Object.keys(fighterData).map(
+      fighter => fighterData[fighter].lastName
+    );
+    console.log(fighterData.Demetrious.firstName);
+    console.log(arr);
+    // console.log(this.props.FighterInfo);
     // console.log(this.props.fighter.firstName);
     return (
       <div>
         <div style={frontPageStyles}>
-          <ScrollableAnchor id="header">
-            <div style={titleStyles}>Pick a Fighter</div>
-          </ScrollableAnchor>
+          {/* <ScrollableAnchor id="header"> */}
+          <div style={titleStyles}>Pick a Fighter</div>
+          {/* </ScrollableAnchor> */}
           <div style={rankingsAndUnderlineContainer}>
             <div style={animateRankingsTitle(this.state.opacity)}>
               Pound for Pound
@@ -290,14 +297,16 @@ class FrontPage extends Component {
     );
   }
 }
-//Transforms the current Redux store state into the props you want to pass to presentational component
-const mapStateToProps = state => {
-  return {
-    fighter: state.fighter
-  };
-};
-//Connects FrontPage to the Redux store
-export default connect(
-  mapStateToProps,
-  { changeFighter }
-)(FrontPage);
+// //Transforms the current Redux store state into the props you want to pass to presentational component
+// const mapStateToProps = state => {
+//   return {
+//     fighter: state.fighter
+//   };
+// };
+// //Connects FrontPage to the Redux store
+// export default connect(
+//   mapStateToProps,
+//   { changeFighter }
+// )(FrontPage);
+
+export default FrontPage;

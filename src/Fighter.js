@@ -53,7 +53,7 @@ class Fighter extends Component {
     return (
       <div>
         {/* <a href="#statistics" style={anchorStyle}> */}
-        <Link to={ROUTES.fighterInfo}>
+        <Link to={ROUTES.fighterInfo} replace>
           <li
             onClick={this.props.onClick}
             onMouseOver={this.onMouseOver}
