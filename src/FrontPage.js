@@ -1,14 +1,9 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
-// import { connect } from "react-redux";
 import _ from "lodash";
-import FighterInfo from "./FighterInfo";
 import Fighter from "./Fighter";
-// import { Link } from "react-router-dom";
-// import { ROUTES } from "./constants";
-// import ScrollableAnchor from "react-scrollable-anchor";
 // import { fighter } from "./FrontPage/reducer";
-// import { changeFighter } from "./FrontPage/actions";
+import { changeFighter } from "./FrontPage/actions";
 
 const fighterData = {
   Demetrious: {
@@ -282,9 +277,7 @@ class FrontPage extends Component {
                   firstName={fighterData[fighterName].firstName}
                   lastName={fighterData[fighterName].lastName}
                   //OnClick change state to fighter that I clicked on which affects the props that go to FighterInfo
-                  onClick={() =>
-                    this.props.changeFighter(fighterData[fighterName])
-                  }
+                  onClick={() => changeFighter(fighterData[fighterName])}
                 />
               ))}
             </ol>
