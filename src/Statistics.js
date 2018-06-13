@@ -26,7 +26,7 @@ class Statistics extends Component {
     return (
       <div style={statisticContainer}>
         {/* <ScrollableAnchor id="statistics"> */}
-        {/* <div style={rightStatisticStyles}>
+        <div style={rightStatisticStyles}>
           <SkillsBar
             statisticNumber={this.props.submissionAttempts}
             statisticName="Submission Attempts"
@@ -39,7 +39,7 @@ class Statistics extends Component {
             statisticNumber={this.props.totalStrikesLanded}
             statisticName="Total Strikes Landed"
           />
-        </div> */}
+        </div>
         {/* </ScrollableAnchor> */}
 
         <div style={leftStatisticStyles}>
@@ -47,14 +47,14 @@ class Statistics extends Component {
             statisticNumber={this.props.strikesLandedPerMinute}
             statisticName="Strikes Landed Per Minute"
           />
-          {/* <SkillsBar
+          <SkillsBar
             statisticNumber={this.props.strikeDifferential}
             statisticName="Strike Differential"
           />
           <SkillsBar
             statisticNumber={this.props.knockdownsLanded}
             statisticName="Knockdowns Landed"
-          /> */}
+          />
         </div>
       </div>
     );

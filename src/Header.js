@@ -60,18 +60,27 @@ class Header extends Component {
     };
   }
 
+  componentDidMount() {
+    setTimeout(
+      function() {
+        this.setState({ opacity: this.props.opacity });
+      }.bind(this),
+      1000
+    );
+  }
+
   //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
   //If they are different then it calls setState and changes the value of opacity
-  componentWillReceiveProps(nextProps) {
-    if (this.props.firstName !== nextProps.firstName) {
-      setTimeout(
-        function() {
-          this.setState({ opacity: nextProps.opacity });
-        }.bind(this),
-        1000
-      );
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props.firstName !== nextProps.firstName) {
+  //     setTimeout(
+  //       function() {
+  //         this.setState({ opacity: nextProps.opacity });
+  //       }.bind(this),
+  //       1000
+  //     );
+  //   }
+  // }
 
   render() {
     // console.log(this.state.opacity);

@@ -92,7 +92,6 @@ class SkillsBar extends Component {
   }
 
   componentDidMount() {
-    console.log("bitch Im in here");
     setTimeout(
       function() {
         this.setState({ statNum: this.props.statisticNumber });
@@ -130,9 +129,6 @@ class SkillsBar extends Component {
   // }
 
   render() {
-    // console.log(this.state.statNum);
-    console.log(this.props.statisticNumber);
-    console.log(this.props.statisticName);
     return (
       <div style={container}>
         <div style={statisticName}>{this.props.statisticName}</div>
