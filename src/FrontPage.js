@@ -2,8 +2,9 @@
 import React, { Component } from "react";
 import Fighter from "./Fighter";
 // import { changeFighter } from "./FrontPage/actions";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { fighterData } from "./constants";
+import { store } from "./index";
 
 const titleStyles = {
   width: "1em",
@@ -107,6 +108,7 @@ class FrontPage extends Component {
     );
   }
   render() {
+    console.log(store.getState());
     return (
       <div>
         <div style={frontPageStyles}>

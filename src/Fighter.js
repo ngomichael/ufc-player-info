@@ -22,10 +22,10 @@ function hoverFighter(spacing) {
   return rankingsList;
 }
 
-const anchorStyle = {
-  textDecoration: "none",
-  color: "black"
-};
+// const anchorStyle = {
+//   textDecoration: "none",
+//   color: "black"
+// };
 
 class Fighter extends Component {
   constructor(props) {

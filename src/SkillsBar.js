@@ -65,6 +65,7 @@ class SkillsBar extends Component {
     this.addToCount = this.addToCount.bind(this);
     this.state = {
       statNum: 0,
+      //change name of count to something better description
       count: 0
     };
   }
@@ -90,27 +91,48 @@ class SkillsBar extends Component {
     }
   }
 
-  //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
-  //If it is different then it calls setState and changes the value of statNum and count and calls callAddToCount
-  componentWillReceiveProps(nextProps) {
-    if (this.props.statisticNumber !== nextProps.statisticNumber) {
-      setTimeout(
-        function() {
-          this.setState({ statNum: nextProps.statisticNumber });
-        }.bind(this),
-        1000
-      );
-      setTimeout(
-        function() {
-          this.setState({ count: 0 });
-        }.bind(this),
-        1000
-      );
-      setTimeout(this.callAddToCount, 1000);
-    }
+  componentDidMount() {
+    console.log("bitch Im in here");
+    setTimeout(
+      function() {
+        this.setState({ statNum: this.props.statisticNumber });
+      }.bind(this),
+      1000
+    );
+    setTimeout(
+      function() {
+        this.setState({ count: 0 });
+      }.bind(this),
+      1000
+    );
+    setTimeout(this.callAddToCount, 1000);
   }
 
+  //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
+  //If it is different then it calls setState and changes the value of statNum and count and calls callAddToCount
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("bitch Im in here");
+  //   if (this.props.statisticNumber !== nextProps.statisticNumber) {
+  //     setTimeout(
+  //       function() {
+  //         this.setState({ statNum: nextProps.statisticNumber });
+  //       }.bind(this),
+  //       1000
+  //     );
+  //     setTimeout(
+  //       function() {
+  //         this.setState({ count: 0 });
+  //       }.bind(this),
+  //       1000
+  //     );
+  //     setTimeout(this.callAddToCount, 1000);
+  //   }
+  // }
+
   render() {
+    // console.log(this.state.statNum);
+    console.log(this.props.statisticNumber);
+    console.log(this.props.statisticName);
     return (
       <div style={container}>
         <div style={statisticName}>{this.props.statisticName}</div>
