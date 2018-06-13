@@ -27,7 +27,6 @@ class App extends Component {
                   {...props}
                 />
               )}
-              // component={FrontPage}
             />
             <Route
               path={ROUTES.fighterInfo}

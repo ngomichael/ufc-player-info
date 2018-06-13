@@ -1,11 +1,8 @@
 //Creates the list of fighters in the FrontPage component
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { configureAnchors } from "react-scrollable-anchor";
 import { Link } from "react-router-dom";
 import { ROUTES } from "./constants";
-
-configureAnchors({ offset: -60, scrollDuration: 1000 });
 
 //returns rankingsList styles and allows letterSpacing to change
 //on mouseover and mouseout
@@ -21,11 +18,6 @@ function hoverFighter(spacing) {
   };
   return rankingsList;
 }
-
-// const anchorStyle = {
-//   textDecoration: "none",
-//   color: "black"
-// };
 
 class Fighter extends Component {
   constructor(props) {
@@ -52,7 +44,6 @@ class Fighter extends Component {
   render() {
     return (
       <div>
-        {/* <a href="#statistics" style={anchorStyle}> */}
         <Link to={ROUTES.fighterInfo} replace>
           <li
             onClick={this.props.onClick}
@@ -63,7 +54,6 @@ class Fighter extends Component {
             {this.props.firstName} {this.props.lastName}
           </li>
         </Link>
-        {/* </a> */}
       </div>
     );
   }

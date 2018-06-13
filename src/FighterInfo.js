@@ -3,12 +3,9 @@
 
 //Displays the arrow, country, fighter name, record, and skills bars
 import React, { Component } from "react";
-// import FontAwesome from "react-fontawesome";
 import PropTypes from "prop-types";
 import Header from "./Header";
 import Statistics from "./Statistics";
-import { store } from "./index";
-// import faStyles from "font-awesome/css/font-awesome.css";
 
 // const fighterChangeStyle = {
 //   position: "relative",
@@ -22,40 +19,12 @@ import { store } from "./index";
 //   textDecoration: "none"
 // };
 
-// const arrowStyle = {
-//   color: "black"
-// };
-
 class FighterInfo extends Component {
   constructor(props) {
     super(props);
-    // this.onMouseOver = this.onMouseOver.bind(this);
-    // this.onMouseOut = this.onMouseOut.bind(this);
-
-    // this.state = {
-    //   cursor: "pointer"
-    // };
   }
 
-  // onMouseOver() {
-  //   this.setState({
-  //     cursor: "pointer"
-  //   });
-  // }
-
-  // onMouseOut() {
-  //   this.setState({
-  //     cursor: ""
-  //   });
-  // }
-
   render() {
-    //   const { firstName, lastName, country } = this.props.fighterInfo;
-    console.log(this.props.fighterInfo.strikeDifferential);
-
-    // console.log(this.props.fighterInfo.knockdownsLanded);
-    console.log(store.getState());
-
     return (
       <div>
         <div>
@@ -67,20 +36,6 @@ class FighterInfo extends Component {
             opacity={this.props.fighterInfo.headerOpacity}
           />
         </div>
-        {/* <a
-          href="#header"
-          style={fighterChangeStyle}
-          onMouseOver={this.onMouseOver}
-          onMouseOut={this.onMouseOut}
-        >
-          <div style={arrowStyle}>
-            <FontAwesome
-              className="fa fa-long-arrow-up fa-4x"
-              name="upArrow"
-              cssModule={faStyles}
-            />
-          </div>
-        </a> */}
 
         <div>
           <Statistics

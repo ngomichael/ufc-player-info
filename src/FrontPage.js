@@ -1,8 +1,6 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
 import Fighter from "./Fighter";
-// import { changeFighter } from "./FrontPage/actions";
-// import { connect } from "react-redux";
 import { fighterData } from "./constants";
 import { store } from "./index";
 
@@ -58,27 +56,9 @@ function animateUnderline(width) {
 class FrontPage extends Component {
   constructor(props) {
     super(props);
-    // this.props.changeFighter(fighterData.fighterName)
-    // this.props.changeFighter(fighterData.Cody);
-    // this.changeFighter = this.changeFighter.bind(this);
     this.state = {
       width: "0",
       opacity: "0"
-
-      // fighterInfo: {
-      //   headerOpacity: "1",
-      //   firstName: "First",
-      //   lastName: "Last",
-      //   country: "Country",
-      //   record: "0-0",
-
-      //   strikesLandedPerMinute: 0,
-      //   strikeDifferential: 0,
-      //   knockdownsLanded: 0,
-      //   submissionAttempts: 0,
-      //   submissions: 0,
-      //   totalStrikesLanded: 0
-      // }
     };
   }
 
@@ -137,17 +117,5 @@ class FrontPage extends Component {
     );
   }
 }
-
-//Transforms the current Redux store state into the props you want to pass to presentational component
-// const mapStateToProps = state => {
-//   return {
-//     fighter: state.fighter
-//   };
-// };
-// //Connects App to the Redux store
-// export default connect(
-//   mapStateToProps,
-//   { changeFighter }
-// )(FrontPage);
 
 export default FrontPage;
