@@ -266,7 +266,9 @@ class FrontPage extends Component {
                   firstName={fighterData[fighterName].firstName}
                   lastName={fighterData[fighterName].lastName}
                   //OnClick change state to fighter that I clicked on which affects the props that go to FighterInfo
-                  onClick={() => changeFighter(fighterData[fighterName])}
+                  onClick={() =>
+                    this.props.changeFighter(fighterData[fighterName])
+                  }
                 />
               ))}
             </ol>
