@@ -1,10 +1,9 @@
 //Displays the first page that the user sees
 import React, { Component } from "react";
 import Fighter from "./Fighter";
-import { changeFighter } from "./FrontPage/actions";
+// import { changeFighter } from "./FrontPage/actions";
 import { connect } from "react-redux";
 import { fighterData } from "./constants";
-// import { mapStateToProps } from "./App";
 
 const titleStyles = {
   width: "1em",
@@ -140,15 +139,15 @@ class FrontPage extends Component {
 }
 
 //Transforms the current Redux store state into the props you want to pass to presentational component
-const mapStateToProps = state => {
-  return {
-    fighter: state.fighter
-  };
-};
-//Connects App to the Redux store
-export default connect(
-  mapStateToProps,
-  { changeFighter }
-)(FrontPage);
+// const mapStateToProps = state => {
+//   return {
+//     fighter: state.fighter
+//   };
+// };
+// //Connects App to the Redux store
+// export default connect(
+//   mapStateToProps,
+//   { changeFighter }
+// )(FrontPage);
 
-// export default FrontPage;
+export default FrontPage;

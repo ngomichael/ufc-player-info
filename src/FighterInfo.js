@@ -7,6 +7,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Header from "./Header";
 import Statistics from "./Statistics";
+import { store } from "./index";
 // import faStyles from "font-awesome/css/font-awesome.css";
 
 // const fighterChangeStyle = {
@@ -51,6 +52,7 @@ class FighterInfo extends Component {
   render() {
     //   const { firstName, lastName, country } = this.props.fighterInfo;
     console.log(this.props.fighterInfo);
+    console.log(store.getState());
 
     return (
       <div>

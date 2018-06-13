@@ -7,7 +7,7 @@ import { createStore } from "redux";
 import { fighter } from "../src/FrontPage/reducer";
 
 const root = document.getElementById("root");
-let store = createStore(fighter);
+export const store = createStore(fighter);
 
 ReactDOM.render(<App store={store} />, root);
 registerServiceWorker();

@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import SkillsBar from "./SkillsBar";
-import ScrollableAnchor from "react-scrollable-anchor";
 
 const statisticContainer = {
   position: "relative",
@@ -25,22 +24,22 @@ class Statistics extends Component {
   render() {
     return (
       <div style={statisticContainer}>
-        <ScrollableAnchor id="statistics">
-          <div style={rightStatisticStyles}>
-            <SkillsBar
-              statisticNumber={this.props.submissionAttempts}
-              statisticName="Submission Attempts"
-            />
-            <SkillsBar
-              statisticNumber={this.props.submissions}
-              statisticName="Submissions"
-            />
-            <SkillsBar
-              statisticNumber={this.props.totalStrikesLanded}
-              statisticName="Total Strikes Landed"
-            />
-          </div>
-        </ScrollableAnchor>
+        {/* <ScrollableAnchor id="statistics"> */}
+        <div style={rightStatisticStyles}>
+          <SkillsBar
+            statisticNumber={this.props.submissionAttempts}
+            statisticName="Submission Attempts"
+          />
+          <SkillsBar
+            statisticNumber={this.props.submissions}
+            statisticName="Submissions"
+          />
+          <SkillsBar
+            statisticNumber={this.props.totalStrikesLanded}
+            statisticName="Total Strikes Landed"
+          />
+        </div>
+        {/* </ScrollableAnchor> */}
 
         <div style={leftStatisticStyles}>
           <SkillsBar

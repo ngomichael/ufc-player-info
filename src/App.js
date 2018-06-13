@@ -18,7 +18,17 @@ class App extends Component {
       <Provider store={this.props.store}>
         <Router>
           <Switch>
-            <Route exact path={ROUTES.frontPage} component={FrontPage} />
+            <Route
+              exact
+              path={ROUTES.frontPage}
+              render={props => (
+                <FrontPage
+                  changeFighter={this.props.changeFighter}
+                  {...props}
+                />
+              )}
+              // component={FrontPage}
+            />
             <Route
               path={ROUTES.fighterInfo}
               render={props => (
