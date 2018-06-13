@@ -107,8 +107,6 @@ class FrontPage extends Component {
     );
   }
   render() {
-    //Logs fighter state
-    // console.log(this.props.fighter);
     return (
       <div>
         <div style={frontPageStyles}>

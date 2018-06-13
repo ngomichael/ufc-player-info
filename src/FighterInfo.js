@@ -52,6 +52,7 @@ class FighterInfo extends Component {
   render() {
     //   const { firstName, lastName, country } = this.props.fighterInfo;
     console.log(this.props.fighterInfo);
+    console.log(this.props.fighterInfo.knockdownsLanded);
     console.log(store.getState());
 
     return (

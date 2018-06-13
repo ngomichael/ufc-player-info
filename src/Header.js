@@ -74,7 +74,7 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.state.opacity);
+    // console.log(this.state.opacity);
     return (
       <div>
         <div style={animateFighterInfo(this.state.opacity)}>
