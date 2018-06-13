@@ -9,7 +9,6 @@ import { Provider } from "react-redux";
 import { ROUTES } from "./constants";
 import FrontPage from "./FrontPage";
 import FighterInfo from "./FighterInfo";
-import { fighter } from "./FrontPage/reducer";
 import { changeFighter } from "./FrontPage/actions";
 import { connect } from "react-redux";
 
@@ -22,7 +21,9 @@ class App extends Component {
             <Route exact path={ROUTES.frontPage} component={FrontPage} />
             <Route
               path={ROUTES.fighterInfo}
-              render={props => <FighterInfo {...props} />}
+              render={props => (
+                <FighterInfo fighterInfo={this.props.fighter} {...props} />
+              )}
             />
             <Redirect to={ROUTES.frontPage} />
           </Switch>

@@ -2,7 +2,6 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import Fighter from "./Fighter";
-// import { fighter } from "./FrontPage/reducer";
 import { changeFighter } from "./FrontPage/actions";
 
 const fighterData = {
@@ -251,20 +250,10 @@ class FrontPage extends Component {
   render() {
     //Logs fighter state
     // console.log(this.props.fighter);
-
-    const arr = Object.keys(fighterData).map(
-      fighter => fighterData[fighter].lastName
-    );
-    console.log(fighterData.Demetrious.firstName);
-    console.log(arr);
-    // console.log(this.props.FighterInfo);
-    // console.log(this.props.fighter.firstName);
     return (
       <div>
         <div style={frontPageStyles}>
-          {/* <ScrollableAnchor id="header"> */}
           <div style={titleStyles}>Pick a Fighter</div>
-          {/* </ScrollableAnchor> */}
           <div style={rankingsAndUnderlineContainer}>
             <div style={animateRankingsTitle(this.state.opacity)}>
               Pound for Pound
@@ -283,23 +272,9 @@ class FrontPage extends Component {
             </ol>
           </div>
         </div>
-        {/* <div>
-          <FighterInfo fighterInfo={this.props.fighter} />
-        </div> */}
       </div>
     );
   }
 }
-// //Transforms the current Redux store state into the props you want to pass to presentational component
-// const mapStateToProps = state => {
-//   return {
-//     fighter: state.fighter
-//   };
-// };
-// //Connects FrontPage to the Redux store
-// export default connect(
-//   mapStateToProps,
-//   { changeFighter }
-// )(FrontPage);
 
 export default FrontPage;

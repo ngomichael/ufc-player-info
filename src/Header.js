@@ -11,7 +11,7 @@ function animateFighterInfo(opacity) {
     width: "100%",
     height: "110px",
     fontSize: "176%",
-    top: "450px",
+    // top: "450px",
     right: "10px",
     transition: "all 1.5s ease",
     opacity: opacity
