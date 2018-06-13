@@ -44,7 +44,11 @@ class Fighter extends Component {
   render() {
     return (
       <div>
-        <Link to={ROUTES.fighterInfo} replace>
+        <Link
+          to={ROUTES.fighterInfo}
+          style={{ textDecoration: "none", color: "black" }}
+          replace
+        >
           <li
             onClick={this.props.onClick}
             onMouseOver={this.onMouseOver}

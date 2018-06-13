@@ -7,18 +7,6 @@ import PropTypes from "prop-types";
 import Header from "./Header";
 import Statistics from "./Statistics";
 
-// const fighterChangeStyle = {
-//   position: "relative",
-//   display: "flex",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   ontFamily: "Lato",
-//   fontWeight: "700",
-//   color: "#006600",
-//   cursor: "pointer",
-//   textDecoration: "none"
-// };
-
 class FighterInfo extends Component {
   constructor(props) {
     super(props);

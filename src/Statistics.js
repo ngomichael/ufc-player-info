@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import SkillsBar from "./SkillsBar";
 
 const statisticContainer = {
-  position: "relative",
+  position: "relative"
   //This is what makes the width of the page a lot larger
-  left: "900px"
+  // left: "900px"
 };
 
 const leftStatisticStyles = {
@@ -22,11 +22,9 @@ const rightStatisticStyles = {
 
 class Statistics extends Component {
   render() {
-    console.log(this.props.strikeDifferential);
     return (
       <div style={statisticContainer}>
-        {/* <ScrollableAnchor id="statistics"> */}
-        <div style={rightStatisticStyles}>
+        <div>
           <SkillsBar
             statisticNumber={this.props.submissionAttempts}
             statisticName="Submission Attempts"
@@ -40,9 +38,8 @@ class Statistics extends Component {
             statisticName="Total Strikes Landed"
           />
         </div>
-        {/* </ScrollableAnchor> */}
 
-        <div style={leftStatisticStyles}>
+        <div>
           <SkillsBar
             statisticNumber={this.props.strikesLandedPerMinute}
             statisticName="Strikes Landed Per Minute"
