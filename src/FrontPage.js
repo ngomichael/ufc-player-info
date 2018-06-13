@@ -295,4 +295,7 @@ const mapStateToProps = state => {
   };
 };
 //Connects FrontPage to the Redux store
-export default connect(mapStateToProps, { changeFighter })(FrontPage);
+export default connect(
+  mapStateToProps,
+  { changeFighter }
+)(FrontPage);
