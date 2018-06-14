@@ -33,6 +33,19 @@ function hoverFighter320(spacing) {
   return rankingsList;
 }
 
+function hoverFighter667(spacing) {
+  const rankingsList = {
+    fontSize: "23px",
+    cursor: "pointer",
+    fontFamily: "Open Sans",
+    fontWeight: "400",
+    letterSpacing: spacing,
+    margin: "15px 0",
+    transition: "all 0.3s ease"
+  };
+  return rankingsList;
+}
+
 class Fighter extends Component {
   constructor(props) {
     super(props);
@@ -58,7 +71,7 @@ class Fighter extends Component {
   render() {
     return (
       <div>
-        <MediaQuery maxDeviceWidth={1223}>
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
           <Link
             to={ROUTES.fighterInfo}
             style={{ textDecoration: "none", color: "black" }}
@@ -74,7 +87,23 @@ class Fighter extends Component {
             </li>
           </Link>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={1224}>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+          <Link
+            to={ROUTES.fighterInfo}
+            style={{ textDecoration: "none", color: "black" }}
+            replace
+          >
+            <li
+              onClick={this.props.onClick}
+              onMouseOver={this.onMouseOver}
+              onMouseOut={this.onMouseOut}
+              style={hoverFighter667(this.state.letterSpacing)}
+            >
+              {this.props.firstName} {this.props.lastName}
+            </li>
+          </Link>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1024}>
           <Link
             to={ROUTES.fighterInfo}
             style={{ textDecoration: "none", color: "black" }}

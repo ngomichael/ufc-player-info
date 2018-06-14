@@ -13,36 +13,39 @@ import MediaQuery from "react-responsive";
 //   });
 // }
 
-const frontPageStyles1024 = {
-  display: "flex",
-  alignItems: "center",
-  flexDirection: "row"
-};
+function frontPageStyles(flexDirection) {
+  const frontPage = {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: flexDirection
+  };
+  return frontPage;
+}
 
-const titleStyles1024 = {
-  width: "1em",
+const titleStyles = {
   letterSpacing: "25px",
   flexDirection: "column",
   fontFamily: "Roboto Slab",
-  fontWeight: "700",
-  fontSize: "700%",
-  paddingLeft: "100px"
+  fontWeight: "700"
 };
 
-const rankingsAndUnderlineContainer1024 = {
-  position: "relative",
-  left: "50%",
-  top: "100px"
-};
+function rankingsAndUnderlineContainerStyles(top) {
+  const rankingsAndUnderlineContainer = {
+    position: "relative",
+    top: top + "px"
+  };
+
+  return rankingsAndUnderlineContainer;
+}
 
 //animates 'Pound for Pound" title
-function animateRankingsTitle1024(opacity) {
+function animateRankingsTitle(opacity, fontSize) {
   const rankingsTitle = {
     position: "relative",
     letterSpacing: "5px",
     fontFamily: "Roboto Slab",
     fontWeight: "400",
-    fontSize: "40px",
+    fontSize: fontSize + "px",
     transition: "all 1.5s ease",
     opacity: opacity
   };
@@ -51,7 +54,7 @@ function animateRankingsTitle1024(opacity) {
 }
 
 //animates underline under 'Pound for Pound' title
-function animateUnderline1024(width) {
+function animateUnderline(width) {
   const underline = {
     position: "relative",
     width: width + "%",
@@ -63,57 +66,8 @@ function animateUnderline1024(width) {
 
   return underline;
 }
-///////////////////////////////////////////////////////////////////////////////////////////////
-const frontPageStyles320 = {
-  display: "flex",
-  alignItems: "center",
-  flexDirection: "column"
-};
 
-const titleStyles320 = {
-  // width: "1em",
-  letterSpacing: "25px",
-  flexDirection: "column",
-  fontFamily: "Roboto Slab",
-  fontWeight: "700",
-  // fontSize: "700%",
-  paddingTop: "50px"
-};
-
-const rankingsAndUnderlineContainer320 = {
-  position: "relative",
-  // left: "50%",
-  top: "50px"
-};
-
-//animates 'Pound for Pound" title
-function animateRankingsTitle320(opacity) {
-  const rankingsTitle = {
-    position: "relative",
-    letterSpacing: "5px",
-    fontFamily: "Roboto Slab",
-    fontWeight: "400",
-    fontSize: "20px",
-    transition: "all 1.5s ease",
-    opacity: opacity
-  };
-
-  return rankingsTitle;
-}
-
-//animates underline under 'Pound for Pound' title
-function animateUnderline320(width) {
-  const underline = {
-    position: "relative",
-    width: width + "%",
-    backgroundColor: "black",
-    height: "4px",
-    borderRadius: "4px",
-    transition: "all 1.5s ease"
-  };
-
-  return underline;
-}
+////////////////////////////////////////////////////////////////
 
 class FrontPage extends Component {
   constructor(props) {
@@ -144,17 +98,17 @@ class FrontPage extends Component {
   render() {
     return (
       <div>
-        <MediaQuery maxDeviceWidth={1223}>
-          <div style={frontPageStyles320}>
-            <div style={titleStyles320}>
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
+          <div style={frontPageStyles("column")}>
+            <div style={{ paddingTop: "50px", ...titleStyles }}>
               <p>Pick a</p>
               <p>Fighter</p>
             </div>
-            <div style={rankingsAndUnderlineContainer320}>
-              <div style={animateRankingsTitle320(this.state.opacity)}>
+            <div style={rankingsAndUnderlineContainerStyles(50)}>
+              <div style={animateRankingsTitle(this.state.opacity, 20)}>
                 Pound for Pound
               </div>
-              <div style={animateUnderline320(this.state.width)} />
+              <div style={animateUnderline(this.state.width)} />
               <ol>
                 {Object.keys(fighterData).map(fighterName => (
                   <Fighter
@@ -171,14 +125,68 @@ class FrontPage extends Component {
             </div>
           </div>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={1224}>
-          <div style={frontPageStyles1024}>
-            <div style={titleStyles1024}>Pick a Fighter</div>
-            <div style={rankingsAndUnderlineContainer1024}>
-              <div style={animateRankingsTitle1024(this.state.opacity)}>
+
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+          <div style={frontPageStyles("row")}>
+            <div
+              style={{
+                width: "1em",
+                paddingLeft: "100px",
+                fontSize: "350%",
+                ...titleStyles
+              }}
+            >
+              Pick a Fighter
+            </div>
+            <div
+              style={{
+                left: "45%",
+                ...rankingsAndUnderlineContainerStyles(100)
+              }}
+            >
+              <div style={animateRankingsTitle(this.state.opacity, 30)}>
                 Pound for Pound
               </div>
-              <div style={animateUnderline1024(this.state.width)} />
+              <div style={animateUnderline(this.state.width)} />
+              <ol>
+                {Object.keys(fighterData).map(fighterName => (
+                  <Fighter
+                    key={fighterName}
+                    firstName={fighterData[fighterName].firstName}
+                    lastName={fighterData[fighterName].lastName}
+                    //OnClick change state to fighter that I clicked on which affects the props that go to FighterInfo
+                    onClick={() =>
+                      this.props.changeFighter(fighterData[fighterName])
+                    }
+                  />
+                ))}
+              </ol>
+            </div>
+          </div>
+        </MediaQuery>
+
+        <MediaQuery minDeviceWidth={1024}>
+          <div style={frontPageStyles("row")}>
+            <div
+              style={{
+                width: "1em",
+                paddingLeft: "100px",
+                fontSize: "700%",
+                ...titleStyles
+              }}
+            >
+              Pick a Fighter
+            </div>
+            <div
+              style={{
+                left: "50%",
+                ...rankingsAndUnderlineContainerStyles(100)
+              }}
+            >
+              <div style={animateRankingsTitle(this.state.opacity, 40)}>
+                Pound for Pound
+              </div>
+              <div style={animateUnderline(this.state.width)} />
               <ol>
                 {Object.keys(fighterData).map(fighterName => (
                   <Fighter
