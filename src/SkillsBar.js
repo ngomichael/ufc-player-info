@@ -1,12 +1,12 @@
 //Creates the skills bar
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import MediaQuery from "react-responsive";
 
 const container = {
   display: "flex",
-  flexDirection: "column",
-  marginBottom: "20px",
-  height: "100%"
+  flexDirection: "column"
+  // height: "100%"
 };
 
 const outerSkillsBar = {
@@ -14,7 +14,7 @@ const outerSkillsBar = {
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  width: "30%",
+  // width: "30%",
   backgroundColor: "#e6e6e6",
   height: "60px",
   borderRadius: "4px",
@@ -52,6 +52,63 @@ function createInnerSkillsStyle(width) {
     borderBottomLeftRadius: "4px",
     borderTopLeftRadius: "4px",
     borderRadius: "3px",
+    transition: "all 1.5s ease"
+  };
+
+  return innerSkillsStyle;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+const container320 = {
+  display: "flex",
+  flexDirection: "column"
+  // height: "100%"
+};
+
+const outerSkillsBar320 = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  // width: "110%",
+  backgroundColor: "#e6e6e6",
+  height: "40px",
+  borderRadius: "3px",
+  marginBottom: "15px"
+  // borderBottomRightRadius: "3px",
+  // borderTopRightRadius: "3px"
+};
+
+const statNumber320 = {
+  display: "flex",
+  paddingLeft: "49%",
+  position: "absolute",
+  fontFamily: "Open Sans",
+  fontWeight: "400"
+};
+
+const statisticName320 = {
+  // position: "relative",
+  margin: "5px 0px",
+  fontFamily: "Open Sans",
+  fontWeight: "700",
+  color: "#33331a"
+};
+
+// const spaceBetweenSkillBar320 = {
+//   height: "20px"
+// };
+
+//Returns styles that takes a number and uses that as its width
+function createInnerSkillsStyle320(width) {
+  const innerSkillsStyle = {
+    width: width + "%",
+    backgroundColor: "#990000",
+    opacity: "0.9",
+    height: "40px",
+    // borderBottomLeftRadius: "4px",
+    // borderTopLeftRadius: "4px",
+    borderRadius: "2px",
     transition: "all 1.5s ease"
   };
 
@@ -107,36 +164,41 @@ class SkillsBar extends Component {
     setTimeout(this.callAddToCount, 1000);
   }
 
-  //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
-  //If it is different then it calls setState and changes the value of statNum and count and calls callAddToCount
-  // componentWillReceiveProps(nextProps) {
-  //   console.log("bitch Im in here");
-  //   if (this.props.statisticNumber !== nextProps.statisticNumber) {
-  //     setTimeout(
-  //       function() {
-  //         this.setState({ statNum: nextProps.statisticNumber });
-  //       }.bind(this),
-  //       1000
-  //     );
-  //     setTimeout(
-  //       function() {
-  //         this.setState({ count: 0 });
-  //       }.bind(this),
-  //       1000
-  //     );
-  //     setTimeout(this.callAddToCount, 1000);
-  //   }
-  // }
-
   render() {
     return (
-      <div style={container}>
-        <div style={statisticName}>{this.props.statisticName}</div>
-        <div style={outerSkillsBar}>
-          <div style={createInnerSkillsStyle(this.state.statNum)} />
+      <div>
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
+          <div style={container320}>
+            <div style={statisticName320}>{this.props.statisticName}</div>
+            <div style={outerSkillsBar320}>
+              <div style={createInnerSkillsStyle320(this.state.statNum)} />
+              <div style={statNumber320}>{this.state.count}</div>
+            </div>
+            {/* <div style={spaceBetweenSkillBar320}> </div> */}
+          </div>
+        </MediaQuery>
+
+        {/* <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
+          <div style={container}>
+            <div style={statisticName}>{this.props.statisticName}</div>
+            <div style={outerSkillsBar}>
+              <div style={createInnerSkillsStyle(this.state.statNum)} />
+  <div style={statNumber}>{this.state.count}</div>
+            </div>
+            <div style={spaceBetweenSkillBar}> </div>
+          </div>
+        </MediaQuery>
+
+        <MediaQuery minDeviceWidth={1224}>
+          <div style={container}>
+            <div style={statisticName}>{this.props.statisticName}</div>
+            <div style={outerSkillsBar}>
+              <div style={createInnerSkillsStyle(this.state.statNum)} />
           <div style={statNumber}>{this.state.count}</div>
-        </div>
-        <div style={spaceBetweenSkillBar}> </div>
+            </div>
+            <div style={spaceBetweenSkillBar}> </div>
+          </div>
+        </MediaQuery> */}
       </div>
     );
   }
@@ -147,3 +209,24 @@ SkillsBar.propTypes = {
 };
 
 export default SkillsBar;
+
+//ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
+//If it is different then it calls setState and changes the value of statNum and count and calls callAddToCount
+// componentWillReceiveProps(nextProps) {
+//   console.log("bitch Im in here");
+//   if (this.props.statisticNumber !== nextProps.statisticNumber) {
+//     setTimeout(
+//       function() {
+//         this.setState({ statNum: nextProps.statisticNumber });
+//       }.bind(this),
+//       1000
+//     );
+//     setTimeout(
+//       function() {
+//         this.setState({ count: 0 });
+//       }.bind(this),
+//       1000
+//     );
+//     setTimeout(this.callAddToCount, 1000);
+//   }
+// }

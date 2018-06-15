@@ -67,8 +67,6 @@ function animateUnderline(width) {
   return underline;
 }
 
-////////////////////////////////////////////////////////////////
-
 class FrontPage extends Component {
   constructor(props) {
     super(props);
@@ -100,12 +98,14 @@ class FrontPage extends Component {
       <div>
         <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
           <div style={frontPageStyles("column")}>
-            <div style={{ paddingTop: "50px", ...titleStyles }}>
+            <div
+              style={{ paddingTop: "15px", fontSize: "150%", ...titleStyles }}
+            >
               <p>Pick a</p>
               <p>Fighter</p>
             </div>
-            <div style={rankingsAndUnderlineContainerStyles(50)}>
-              <div style={animateRankingsTitle(this.state.opacity, 20)}>
+            <div style={rankingsAndUnderlineContainerStyles(10)}>
+              <div style={animateRankingsTitle(this.state.opacity, 25)}>
                 Pound for Pound
               </div>
               <div style={animateUnderline(this.state.width)} />
@@ -126,7 +126,7 @@ class FrontPage extends Component {
           </div>
         </MediaQuery>
 
-        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
           <div style={frontPageStyles("row")}>
             <div
               style={{
@@ -165,7 +165,7 @@ class FrontPage extends Component {
           </div>
         </MediaQuery>
 
-        <MediaQuery minDeviceWidth={1024}>
+        <MediaQuery minDeviceWidth={1224}>
           <div style={frontPageStyles("row")}>
             <div
               style={{

@@ -7,6 +7,13 @@ import PropTypes from "prop-types";
 import Header from "./Header";
 import Statistics from "./Statistics";
 
+const FighterInfoStyles = {
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "center"
+};
+
 class FighterInfo extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +21,7 @@ class FighterInfo extends Component {
 
   render() {
     return (
-      <div>
+      <div style={FighterInfoStyles}>
         <div>
           <Header
             firstName={this.props.fighterInfo.firstName}

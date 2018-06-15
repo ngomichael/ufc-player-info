@@ -1,8 +1,9 @@
 //Displays the country, fighter name, and record
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import MediaQuery from "react-responsive";
 
-function animateFighterInfo(opacity) {
+function animateFighterInfo1224(opacity) {
   const fighterInfoStyles = {
     display: "flex",
     position: "relative",
@@ -20,7 +21,7 @@ function animateFighterInfo(opacity) {
   return fighterInfoStyles;
 }
 
-const countryStyles = {
+const countryStyles1224 = {
   color: "darkblue",
   position: "relative",
   fontSize: "40px",
@@ -29,7 +30,7 @@ const countryStyles = {
   top: "5px"
 };
 
-const fighterNameStyles = {
+const fighterNameStyles1224 = {
   display: "flex",
   position: "relative",
   alignItems: "center",
@@ -41,7 +42,7 @@ const fighterNameStyles = {
   right: "35px"
 };
 
-const recordStyles = {
+const recordStyles1224 = {
   position: "relative",
   fontSize: "40px",
   fontFamily: "Open Sans",
@@ -49,6 +50,58 @@ const recordStyles = {
   bottom: "5px",
   color: "#b30000",
   top: "5px"
+};
+
+////////////////////////////////////////////////////////////////
+
+function animateFighterInfo320(opacity) {
+  const fighterInfoStyles = {
+    display: "flex",
+    flexDirection: "column",
+    // position: "relative",
+    justifyContent: "center",
+    alignItems: "center",
+    // width: "200%",
+    // height: "110px",
+    // fontSize: "176%",
+    // top: "450px"
+    // right: "10px",
+    transition: "all 1.5s ease",
+    opacity: opacity
+  };
+
+  return fighterInfoStyles;
+}
+
+const fighterNameStyles320 = {
+  display: "flex",
+  // position: "relative",
+  // alignItems: "center",
+  // justifyContent: "center",
+  color: "black",
+  fontSize: "35px",
+  fontFamily: "Lato",
+  fontWeight: "400"
+  // right: "35px"
+};
+
+const countryStyles320 = {
+  color: "darkblue",
+  // position: "relative",
+  fontSize: "25px",
+  fontFamily: "Open Sans",
+  fontWeight: "600"
+  // top: "5px"
+};
+
+const recordStyles320 = {
+  // position: "relative",
+  fontSize: "25px",
+  fontFamily: "Open Sans",
+  fontWeight: "600",
+  // bottom: "5px",
+  color: "#b30000"
+  // top: "5px"
 };
 
 class Header extends Component {
@@ -69,29 +122,37 @@ class Header extends Component {
     );
   }
 
-  //ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
-  //If they are different then it calls setState and changes the value of opacity
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props.firstName !== nextProps.firstName) {
-  //     setTimeout(
-  //       function() {
-  //         this.setState({ opacity: nextProps.opacity });
-  //       }.bind(this),
-  //       1000
-  //     );
-  //   }
-  // }
-
   render() {
     return (
-      <div>
-        <div style={animateFighterInfo(this.state.opacity)}>
-          <div style={countryStyles}>{this.props.country}</div>
-          <div style={fighterNameStyles}>
+      <div style={{ display: "flex" }}>
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={1224}>
+          <div style={animateFighterInfo320(this.state.opacity)}>
+            <div style={countryStyles320}>{this.props.country}</div>
+            <div style={fighterNameStyles320}>
+              <div>{this.props.firstName}</div>
+              <i>{this.props.lastName}</i>
+            </div>
+            <div style={recordStyles320}>{this.props.record}</div>
+          </div>
+        </MediaQuery>
+        {/* <MediaQuery minDeviceWidth={1224}>
+        <div style={animateFighterInfo1224(this.state.opacity)}>
+          <div style={countryStyles1224}>{this.props.country}</div>
+          <div style={fighterNameStyles1224}>
             {this.props.firstName} {this.props.lastName}
           </div>
-          <div style={recordStyles}>{this.props.record}</div>
+          <div style={recordStyles1224}>{this.props.record}</div>
         </div>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={1224}>
+        <div style={animateFighterInfo1224(this.state.opacity)}>
+          <div style={countryStyles1224}>{this.props.country}</div>
+          <div style={fighterNameStyles1224}>
+            {this.props.firstName} {this.props.lastName}
+          </div>
+          <div style={recordStyles1224}>{this.props.record}</div>
+        </div>
+        </MediaQuery> */}
       </div>
     );
   }
@@ -106,3 +167,16 @@ Header.propTypes = {
 };
 
 export default Header;
+
+//ComponentDidMount only mounts once so use this to check if the current prop and nextProp are different
+//If they are different then it calls setState and changes the value of opacity
+// componentWillReceiveProps(nextProps) {
+//   if (this.props.firstName !== nextProps.firstName) {
+//     setTimeout(
+//       function() {
+//         this.setState({ opacity: nextProps.opacity });
+//       }.bind(this),
+//       1000
+//     );
+//   }
+// }

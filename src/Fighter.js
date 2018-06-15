@@ -7,35 +7,9 @@ import MediaQuery from "react-responsive";
 
 //returns rankingsList styles and allows letterSpacing to change
 //on mouseover and mouseout
-function hoverFighter1024(spacing) {
+function hoverFighter(spacing, fontSize) {
   const rankingsList = {
-    fontSize: "30px",
-    cursor: "pointer",
-    fontFamily: "Open Sans",
-    fontWeight: "400",
-    letterSpacing: spacing,
-    margin: "15px 0",
-    transition: "all 0.3s ease"
-  };
-  return rankingsList;
-}
-
-function hoverFighter320(spacing) {
-  const rankingsList = {
-    fontSize: "15px",
-    cursor: "pointer",
-    fontFamily: "Open Sans",
-    fontWeight: "400",
-    letterSpacing: spacing,
-    margin: "15px 0",
-    transition: "all 0.3s ease"
-  };
-  return rankingsList;
-}
-
-function hoverFighter667(spacing) {
-  const rankingsList = {
-    fontSize: "23px",
+    fontSize: fontSize + "px",
     cursor: "pointer",
     fontFamily: "Open Sans",
     fontWeight: "400",
@@ -81,13 +55,13 @@ class Fighter extends Component {
               onClick={this.props.onClick}
               onMouseOver={this.onMouseOver}
               onMouseOut={this.onMouseOut}
-              style={hoverFighter320(this.state.letterSpacing)}
+              style={hoverFighter(this.state.letterSpacing, 20)}
             >
               {this.props.firstName} {this.props.lastName}
             </li>
           </Link>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
           <Link
             to={ROUTES.fighterInfo}
             style={{ textDecoration: "none", color: "black" }}
@@ -97,13 +71,13 @@ class Fighter extends Component {
               onClick={this.props.onClick}
               onMouseOver={this.onMouseOver}
               onMouseOut={this.onMouseOut}
-              style={hoverFighter667(this.state.letterSpacing)}
+              style={hoverFighter(this.state.letterSpacing, 23)}
             >
               {this.props.firstName} {this.props.lastName}
             </li>
           </Link>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={1024}>
+        <MediaQuery minDeviceWidth={1224}>
           <Link
             to={ROUTES.fighterInfo}
             style={{ textDecoration: "none", color: "black" }}
@@ -113,7 +87,7 @@ class Fighter extends Component {
               onClick={this.props.onClick}
               onMouseOver={this.onMouseOver}
               onMouseOut={this.onMouseOut}
-              style={hoverFighter1024(this.state.letterSpacing)}
+              style={hoverFighter(this.state.letterSpacing, 30)}
             >
               {this.props.firstName} {this.props.lastName}
             </li>
