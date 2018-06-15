@@ -6,14 +6,14 @@ import MediaQuery from "react-responsive";
 function animateFighterInfo1224(opacity) {
   const fighterInfoStyles = {
     display: "flex",
-    position: "relative",
+    // position: "relative",
     justifyContent: "space-evenly",
     alignItems: "center",
-    width: "100%",
-    height: "110px",
+    width: "1000px",
+    // height: "110px",
     fontSize: "176%",
     // top: "450px",
-    right: "10px",
+    // right: "10px",
     transition: "all 1.5s ease",
     opacity: opacity
   };
@@ -23,33 +23,33 @@ function animateFighterInfo1224(opacity) {
 
 const countryStyles1224 = {
   color: "darkblue",
-  position: "relative",
+  // position: "relative",
   fontSize: "40px",
   fontFamily: "Open Sans",
-  fontWeight: "600",
-  top: "5px"
+  fontWeight: "600"
+  // top: "5px"
 };
 
 const fighterNameStyles1224 = {
   display: "flex",
-  position: "relative",
-  alignItems: "center",
-  justifyContent: "center",
+  // position: "relative",
+  // alignItems: "center",
+  // justifyContent: "center",
   color: "black",
   fontSize: "80px",
   fontFamily: "Lato",
-  fontWeight: "700",
-  right: "35px"
+  fontWeight: "700"
+  // right: "35px"
 };
 
 const recordStyles1224 = {
-  position: "relative",
+  // position: "relative",
   fontSize: "40px",
   fontFamily: "Open Sans",
   fontWeight: "600",
-  bottom: "5px",
-  color: "#b30000",
-  top: "5px"
+  // bottom: "5px",
+  color: "#b30000"
+  // top: "5px"
 };
 
 ////////////////////////////////////////////////////////////////
@@ -104,6 +104,57 @@ const recordStyles320 = {
   // top: "5px"
 };
 
+///////////////////////////////////////////////////////////////////////////
+
+function animateFighterInfo667(opacity) {
+  const fighterInfoStyles = {
+    display: "flex",
+    // position: "relative",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    width: "800px",
+    // height: "110px",
+    fontSize: "176%",
+    // top: "450px",
+    // right: "10px",
+    transition: "all 1.5s ease",
+    opacity: opacity
+  };
+
+  return fighterInfoStyles;
+}
+
+const countryStyles667 = {
+  color: "darkblue",
+  // position: "relative",
+  fontSize: "30px",
+  fontFamily: "Open Sans",
+  fontWeight: "600"
+  // top: "5px"
+};
+
+const fighterNameStyles667 = {
+  display: "flex",
+  // position: "relative",
+  // alignItems: "center",
+  // justifyContent: "center",
+  color: "black",
+  fontSize: "70px",
+  fontFamily: "Lato",
+  fontWeight: "700"
+  // right: "35px"
+};
+
+const recordStyles667 = {
+  // position: "relative",
+  fontSize: "30px",
+  fontFamily: "Open Sans",
+  fontWeight: "600",
+  // bottom: "5px",
+  color: "#b30000"
+  // top: "5px"
+};
+
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -124,8 +175,10 @@ class Header extends Component {
 
   render() {
     return (
-      <div style={{ display: "flex" }}>
-        <MediaQuery minDeviceWidth={320} maxDeviceWidth={1224}>
+      <div
+        style={{ display: "flex", paddingBottom: "30px", paddingTop: "20px" }}
+      >
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
           <div style={animateFighterInfo320(this.state.opacity)}>
             <div style={countryStyles320}>{this.props.country}</div>
             <div style={fighterNameStyles320}>
@@ -135,24 +188,36 @@ class Header extends Component {
             <div style={recordStyles320}>{this.props.record}</div>
           </div>
         </MediaQuery>
-        {/* <MediaQuery minDeviceWidth={1224}>
-        <div style={animateFighterInfo1224(this.state.opacity)}>
-          <div style={countryStyles1224}>{this.props.country}</div>
-          <div style={fighterNameStyles1224}>
-            {this.props.firstName} {this.props.lastName}
+
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
+          <div
+            style={{
+              // marginRight: "10%",
+              ...animateFighterInfo667(this.state.opacity)
+            }}
+          >
+            <div style={countryStyles667}>{this.props.country}</div>
+            <div style={fighterNameStyles667}>
+              {this.props.firstName} <i>{this.props.lastName}</i>
+            </div>
+            <div style={recordStyles667}>{this.props.record}</div>
           </div>
-          <div style={recordStyles1224}>{this.props.record}</div>
-        </div>
         </MediaQuery>
+
         <MediaQuery minDeviceWidth={1224}>
-        <div style={animateFighterInfo1224(this.state.opacity)}>
-          <div style={countryStyles1224}>{this.props.country}</div>
-          <div style={fighterNameStyles1224}>
-            {this.props.firstName} {this.props.lastName}
+          <div
+            style={{
+              marginRight: "10%",
+              ...animateFighterInfo1224(this.state.opacity)
+            }}
+          >
+            <div style={countryStyles1224}>{this.props.country}</div>
+            <div style={fighterNameStyles1224}>
+              {this.props.firstName} <i>{this.props.lastName}</i>
+            </div>
+            <div style={recordStyles1224}>{this.props.record}</div>
           </div>
-          <div style={recordStyles1224}>{this.props.record}</div>
-        </div>
-        </MediaQuery> */}
+        </MediaQuery>
       </div>
     );
   }

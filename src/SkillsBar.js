@@ -81,8 +81,8 @@ const outerSkillsBar320 = {
 
 const statNumber320 = {
   display: "flex",
-  paddingLeft: "49%",
-  position: "absolute",
+  marginRight: "6%",
+  position: "relative",
   fontFamily: "Open Sans",
   fontWeight: "400"
 };

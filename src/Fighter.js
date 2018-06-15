@@ -61,7 +61,7 @@ class Fighter extends Component {
             </li>
           </Link>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
           <Link
             to={ROUTES.fighterInfo}
             style={{ textDecoration: "none", color: "black" }}
@@ -77,7 +77,7 @@ class Fighter extends Component {
             </li>
           </Link>
         </MediaQuery>
-        <MediaQuery minDeviceWidth={1224}>
+        <MediaQuery minDeviceWidth={1024}>
           <Link
             to={ROUTES.fighterInfo}
             style={{ textDecoration: "none", color: "black" }}

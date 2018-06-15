@@ -126,7 +126,7 @@ class FrontPage extends Component {
           </div>
         </MediaQuery>
 
-        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
           <div style={frontPageStyles("row")}>
             <div
               style={{
@@ -165,7 +165,7 @@ class FrontPage extends Component {
           </div>
         </MediaQuery>
 
-        <MediaQuery minDeviceWidth={1224}>
+        <MediaQuery minDeviceWidth={1024}>
           <div style={frontPageStyles("row")}>
             <div
               style={{
