@@ -86,7 +86,7 @@ const statNumber320 = {
   marginRight: "6%",
   position: "relative",
   fontFamily: "Open Sans",
-  fontWeight: "400"
+  fontWeight: "600"
 };
 
 const statisticName320 = {
@@ -117,6 +117,64 @@ function createInnerSkillsStyle320(width) {
   return innerSkillsStyle;
 }
 
+/////////////////////////////////////////////////////////////////////////
+
+const container667 = {
+  display: "flex",
+  flexDirection: "column"
+  // position: "relative"
+  // height: "100%"
+};
+
+const outerSkillsBar667 = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  alignItems: "center",
+  width: "300px",
+  backgroundColor: "#e6e6e6",
+  height: "50px",
+  borderRadius: "3px",
+  marginBottom: "15px"
+  // borderBottomRightRadius: "3px",
+  // borderTopRightRadius: "3px"
+};
+
+const statNumber667 = {
+  display: "flex",
+  paddingRight: "6%",
+  position: "relative",
+  fontFamily: "Open Sans",
+  fontWeight: "600"
+};
+
+const statisticName667 = {
+  // position: "relative",
+  margin: "5px 0px",
+  fontFamily: "Open Sans",
+  fontWeight: "700",
+  color: "#33331a"
+};
+
+// const spaceBetweenSkillBar1024 = {
+//   height: "40px"
+// };
+
+//Returns styles that takes a number and uses that as its width
+function createInnerSkillsStyle667(width) {
+  const innerSkillsStyle = {
+    width: width + "%",
+    backgroundColor: "#990000",
+    opacity: "0.9",
+    height: "50px",
+    borderBottomLeftRadius: "4px",
+    borderTopLeftRadius: "4px",
+    borderRadius: "3px",
+    transition: "all 1.5s ease"
+  };
+
+  return innerSkillsStyle;
+}
 class SkillsBar extends Component {
   constructor(props) {
     super(props);
@@ -176,20 +234,18 @@ class SkillsBar extends Component {
               <div style={createInnerSkillsStyle320(this.state.statNum)} />
               <div style={statNumber320}>{this.state.count}</div>
             </div>
-            {/* <div style={spaceBetweenSkillBar320}> </div> */}
           </div>
         </MediaQuery>
 
-        {/* <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
-          <div style={container}>
-            <div style={statisticName}>{this.props.statisticName}</div>
-            <div style={outerSkillsBar}>
-              <div style={createInnerSkillsStyle(this.state.statNum)} />
-  <div style={statNumber}>{this.state.count}</div>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+          <div style={container667}>
+            <div style={statisticName667}>{this.props.statisticName}</div>
+            <div style={outerSkillsBar667}>
+              <div style={createInnerSkillsStyle667(this.state.statNum)} />
+              <div style={statNumber667}>{this.state.count}</div>
             </div>
-            <div style={spaceBetweenSkillBar}> </div>
           </div>
-        </MediaQuery> */}
+        </MediaQuery>
 
         <MediaQuery minDeviceWidth={1024}>
           <div style={container1024}>

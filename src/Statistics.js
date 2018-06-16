@@ -14,6 +14,12 @@ const statisticContainer1024 = {
   justifyContent: "space-around"
 };
 
+const statisticContainer667 = {
+  display: "flex",
+  width: "700px",
+  justifyContent: "space-around"
+};
+
 // const leftStatisticStyles = {
 //   position: "relative",
 //   right: "725px"
@@ -29,6 +35,40 @@ class Statistics extends Component {
   render() {
     return (
       <div>
+        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+          <div style={statisticContainer667}>
+            <div>
+              <SkillsBar
+                statisticNumber={this.props.submissionAttempts}
+                statisticName="Submission Attempts"
+              />
+              <SkillsBar
+                statisticNumber={this.props.submissions}
+                statisticName="Submissions"
+              />
+              <SkillsBar
+                statisticNumber={this.props.totalStrikesLanded}
+                statisticName="Total Strikes Landed"
+              />
+            </div>
+
+            <div>
+              <SkillsBar
+                statisticNumber={this.props.strikesLandedPerMinute}
+                statisticName="Strikes Landed Per Minute"
+              />
+              <SkillsBar
+                statisticNumber={this.props.strikeDifferential}
+                statisticName="Strike Differential"
+              />
+              <SkillsBar
+                statisticNumber={this.props.knockdownsLanded}
+                statisticName="Knockdowns Landed"
+              />
+            </div>
+          </div>
+        </MediaQuery>
+
         <MediaQuery minDeviceWidth={1024}>
           <div style={statisticContainer1024}>
             <div>
