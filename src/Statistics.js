@@ -4,8 +4,14 @@ import PropTypes from "prop-types";
 import SkillsBar from "./SkillsBar";
 import MediaQuery from "react-responsive";
 
-const statisticContainer = {
-  // display: "flex"
+const statisticContainer320 = {
+  display: "flex"
+};
+
+const statisticContainer1024 = {
+  display: "flex",
+  width: "1000px",
+  justifyContent: "space-around"
 };
 
 // const leftStatisticStyles = {
@@ -23,8 +29,8 @@ class Statistics extends Component {
   render() {
     return (
       <div>
-        <MediaQuery minDeviceWidth={320}>
-          <div style={statisticContainer}>
+        <MediaQuery minDeviceWidth={1024}>
+          <div style={statisticContainer1024}>
             <div>
               <SkillsBar
                 statisticNumber={this.props.submissionAttempts}
@@ -38,7 +44,9 @@ class Statistics extends Component {
                 statisticNumber={this.props.totalStrikesLanded}
                 statisticName="Total Strikes Landed"
               />
+            </div>
 
+            <div>
               <SkillsBar
                 statisticNumber={this.props.strikesLandedPerMinute}
                 statisticName="Strikes Landed Per Minute"
@@ -55,8 +63,8 @@ class Statistics extends Component {
           </div>
         </MediaQuery>
 
-        {/* <MediaQuery minDeviceWidth={320}>
-          <div style={statisticContainer}>
+        <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
+          <div style={statisticContainer320}>
             <div>
               <SkillsBar
                 statisticNumber={this.props.submissionAttempts}
@@ -70,9 +78,6 @@ class Statistics extends Component {
                 statisticNumber={this.props.totalStrikesLanded}
                 statisticName="Total Strikes Landed"
               />
-            </div>
-
-            <div>
               <SkillsBar
                 statisticNumber={this.props.strikesLandedPerMinute}
                 statisticName="Strikes Landed Per Minute"
@@ -87,7 +92,7 @@ class Statistics extends Component {
               />
             </div>
           </div>
-        </MediaQuery> */}
+        </MediaQuery>
       </div>
     );
   }

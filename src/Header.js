@@ -3,15 +3,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 
-function animateFighterInfo1224(opacity) {
+function animateFighterInfo1024(opacity) {
   const fighterInfoStyles = {
     display: "flex",
     // position: "relative",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     alignItems: "center",
     width: "1000px",
     // height: "110px",
-    fontSize: "176%",
+    // fontSize: "176%",
     // top: "450px",
     // right: "10px",
     transition: "all 1.5s ease",
@@ -21,7 +21,7 @@ function animateFighterInfo1224(opacity) {
   return fighterInfoStyles;
 }
 
-const countryStyles1224 = {
+const countryStyles1024 = {
   color: "darkblue",
   // position: "relative",
   fontSize: "40px",
@@ -30,7 +30,7 @@ const countryStyles1224 = {
   // top: "5px"
 };
 
-const fighterNameStyles1224 = {
+const fighterNameStyles1024 = {
   display: "flex",
   // position: "relative",
   // alignItems: "center",
@@ -42,7 +42,7 @@ const fighterNameStyles1224 = {
   // right: "35px"
 };
 
-const recordStyles1224 = {
+const recordStyles1024 = {
   // position: "relative",
   fontSize: "40px",
   fontFamily: "Open Sans",
@@ -176,48 +176,58 @@ class Header extends Component {
   render() {
     return (
       <div
-        style={{ display: "flex", paddingBottom: "30px", paddingTop: "20px" }}
+      //Make this for each mediaquery not wrapped around all three
       >
-        <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
-          <div style={animateFighterInfo320(this.state.opacity)}>
-            <div style={countryStyles320}>{this.props.country}</div>
-            <div style={fighterNameStyles320}>
-              <div>{this.props.firstName}</div>
-              <i>{this.props.lastName}</i>
+        <div
+          style={{ display: "flex", paddingBottom: "10px", paddingTop: "20px" }}
+        >
+          <MediaQuery minDeviceWidth={320} maxDeviceWidth={666}>
+            <div style={animateFighterInfo320(this.state.opacity)}>
+              <div style={countryStyles320}>{this.props.country}</div>
+              <div style={fighterNameStyles320}>
+                <div>{this.props.firstName}</div>
+                <i>{this.props.lastName}</i>
+              </div>
+              <div style={recordStyles320}>{this.props.record}</div>
             </div>
-            <div style={recordStyles320}>{this.props.record}</div>
-          </div>
-        </MediaQuery>
-
-        <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
-          <div
-            style={{
-              // marginRight: "10%",
-              ...animateFighterInfo667(this.state.opacity)
-            }}
-          >
-            <div style={countryStyles667}>{this.props.country}</div>
-            <div style={fighterNameStyles667}>
-              {this.props.firstName} <i>{this.props.lastName}</i>
+          </MediaQuery>
+        </div>
+        <div
+          style={{ display: "flex", paddingBottom: "10px", paddingTop: "20px" }}
+        >
+          <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
+            <div
+              style={{
+                // marginRight: "10%",
+                ...animateFighterInfo667(this.state.opacity)
+              }}
+            >
+              <div style={countryStyles667}>{this.props.country}</div>
+              <div style={fighterNameStyles667}>
+                {this.props.firstName} <i>{this.props.lastName}</i>
+              </div>
+              <div style={recordStyles667}>{this.props.record}</div>
             </div>
-            <div style={recordStyles667}>{this.props.record}</div>
-          </div>
-        </MediaQuery>
-
-        <MediaQuery minDeviceWidth={1224}>
-          <div
-            style={{
-              marginRight: "10%",
-              ...animateFighterInfo1224(this.state.opacity)
-            }}
-          >
-            <div style={countryStyles1224}>{this.props.country}</div>
-            <div style={fighterNameStyles1224}>
-              {this.props.firstName} <i>{this.props.lastName}</i>
+          </MediaQuery>
+        </div>
+        <div
+          style={{ display: "flex", paddingBottom: "10px", paddingTop: "20px" }}
+        >
+          <MediaQuery minDeviceWidth={1024}>
+            <div
+              style={{
+                marginRight: "10%",
+                ...animateFighterInfo1024(this.state.opacity)
+              }}
+            >
+              <div style={countryStyles1024}>{this.props.country}</div>
+              <div style={fighterNameStyles1024}>
+                {this.props.firstName} <i>{this.props.lastName}</i>
+              </div>
+              <div style={recordStyles1024}>{this.props.record}</div>
             </div>
-            <div style={recordStyles1224}>{this.props.record}</div>
-          </div>
-        </MediaQuery>
+          </MediaQuery>
+        </div>
       </div>
     );
   }

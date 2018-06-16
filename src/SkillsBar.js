@@ -3,47 +3,49 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import MediaQuery from "react-responsive";
 
-const container = {
+const container1024 = {
   display: "flex",
   flexDirection: "column"
+  // position: "relative"
   // height: "100%"
 };
 
-const outerSkillsBar = {
+const outerSkillsBar1024 = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
-  // width: "30%",
+  width: "450px",
   backgroundColor: "#e6e6e6",
   height: "60px",
-  borderRadius: "4px",
-  borderBottomRightRadius: "3px",
-  borderTopRightRadius: "3px"
+  borderRadius: "3px",
+  marginBottom: "15px"
+  // borderBottomRightRadius: "3px",
+  // borderTopRightRadius: "3px"
 };
 
-const statNumber = {
+const statNumber1024 = {
   display: "flex",
-  paddingLeft: "27%",
-  position: "absolute",
+  paddingRight: "6%",
+  position: "relative",
   fontFamily: "Open Sans",
   fontWeight: "600"
 };
 
-const statisticName = {
-  position: "relative",
+const statisticName1024 = {
+  // position: "relative",
   margin: "5px 0px",
   fontFamily: "Open Sans",
   fontWeight: "700",
   color: "#33331a"
 };
 
-const spaceBetweenSkillBar = {
-  height: "40px"
-};
+// const spaceBetweenSkillBar1024 = {
+//   height: "40px"
+// };
 
 //Returns styles that takes a number and uses that as its width
-function createInnerSkillsStyle(width) {
+function createInnerSkillsStyle1024(width) {
   const innerSkillsStyle = {
     width: width + "%",
     backgroundColor: "#990000",
@@ -178,7 +180,7 @@ class SkillsBar extends Component {
           </div>
         </MediaQuery>
 
-        {/* <MediaQuery minDeviceWidth={667} maxDeviceWidth={1223}>
+        {/* <MediaQuery minDeviceWidth={667} maxDeviceWidth={1023}>
           <div style={container}>
             <div style={statisticName}>{this.props.statisticName}</div>
             <div style={outerSkillsBar}>
@@ -187,18 +189,17 @@ class SkillsBar extends Component {
             </div>
             <div style={spaceBetweenSkillBar}> </div>
           </div>
-        </MediaQuery>
-
-        <MediaQuery minDeviceWidth={1224}>
-          <div style={container}>
-            <div style={statisticName}>{this.props.statisticName}</div>
-            <div style={outerSkillsBar}>
-              <div style={createInnerSkillsStyle(this.state.statNum)} />
-          <div style={statNumber}>{this.state.count}</div>
-            </div>
-            <div style={spaceBetweenSkillBar}> </div>
-          </div>
         </MediaQuery> */}
+
+        <MediaQuery minDeviceWidth={1024}>
+          <div style={container1024}>
+            <div style={statisticName1024}>{this.props.statisticName}</div>
+            <div style={outerSkillsBar1024}>
+              <div style={createInnerSkillsStyle1024(this.state.statNum)} />
+              <div style={statNumber1024}>{this.state.count}</div>
+            </div>
+          </div>
+        </MediaQuery>
       </div>
     );
   }
