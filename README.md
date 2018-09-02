@@ -1,3 +1,11 @@
+# What is this project?
+- This app displays statistics of the top 10 pound-for-pound fighters in the UFC. To start off, a user has an option to choose from one of the fighters and once they have made their choice it will show them the fighter’s statistics. 
+
+# Goal(s) of this project?
+- For this project my primary goal was to gain experience working with React. After working with React, I wanted to learn and incorporate Redux into my application along with React Router. 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
